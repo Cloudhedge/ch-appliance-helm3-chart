@@ -1,0 +1,102 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ch-chart-template.fullname" . }}
+  labels:
+    app: {{ include "ch-chart-template.name" . }}
+    chart: {{ include "ch-chart-template.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "ch-chart-template.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "ch-chart-template.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      imagePullSecrets:
+        {{- if .Values.global.image.username }}
+          - name: {{ .Release.Name }}-image-pull-secret
+        {{- else if .Values.global.image.imagePullSecrets }}
+          {{- range .Values.global.image.imagePullSecrets }}
+            - name: {{ .name }}
+          {{- end }}
+        # {{- else }}
+        # []
+        {{- end }}
+        
+      {{- if .Values.global.pvcName }}
+      volumes:
+      - name: ch-pvc
+        persistentVolumeClaim:
+          claimName: {{ .Values.global.pvcName }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ printf "%s/%s:%s" .Values.global.image.registry (.Values.image.repository | default .Chart.Name )  (.Values.image.tag | default .Values.global.image.tag ) }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-app-service-urls
+            {{- if .Values.global.secrets }}
+            - secretRef:
+                name: {{ .Release.Name }}-secret
+            {{- end }}
+            {{- if .Values.envRefs }}
+            {{- range .Values.envRefs }}
+            {{- if eq .type "configMapRef" }}
+            - configMapRef:
+                name: {{ .ref }}
+            {{- else if eq .type "secretRef" }}
+            - secretRef:
+                name: {{ .ref }}
+            {{- end }}
+            {{- end }}
+            {{- end }}
+          {{- if .Values.envs }}
+          env:
+            {{- range .Values.envs }}
+            - name: {{ .name }}
+              value: {{ .value }}
+            {{- end }}
+          {{- end }}
+          ports:
+            {{- range .Values.container.ports }}
+            - name: {{ default "http" .name }}
+              containerPort: {{ .containerPort }}
+              protocol: {{ default "TCP" .protocol }}
+            {{- end }}
+          {{- if .Values.global.pvcName  }}
+          volumeMounts:
+            - name: ch-pvc
+              mountPath: /opt/cloudhedge/shared
+          {{- end }}
+          {{- if ne .Chart.Name "logging-agent" }}
+          {{- if .Values.container.livenessProbe }}
+          livenessProbe:
+{{ toYaml .Values.container.livenessProbe | indent 12 }}
+          {{- end }}
+          {{- if .Values.container.readinessProbe }}
+          readinessProbe:
+{{ toYaml .Values.container.readinessProbe | indent 12 }}
+          {{- end }}
+          {{- end }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

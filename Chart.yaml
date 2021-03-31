@@ -1,0 +1,90 @@
+apiVersion: v2
+name: ch-appliance-helmchart
+version: 0.1.0
+description: Cloudhedge Helm chart for Appliance
+keywords:
+  - cloudhedge
+  - chart
+  - kubernetes
+home: https://cloudhedge.io
+maintainers:
+  - name: Engineering team
+    email: engg@cloudhedge.io
+appVersion: 1.0
+
+dependencies:
+- name: ch-chart-template
+  version: 0.1.0
+  alias: webapp
+- name: ch-chart-template
+  version: 0.1.0
+  alias: auth-gateway-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: core-engine
+- name: ch-chart-template
+  version: 0.1.0
+  alias: cloud-infra-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: infra-usage-analysis-engine
+- name: ch-chart-template
+  version: 0.1.0
+  alias: notification-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: repository-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: vault-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: activity-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: k8s-helm-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: discover-service-linux
+- name: ch-chart-template
+  version: 0.1.0
+  alias: discover-service-windows  
+- name: ch-chart-template
+  version: 0.1.0
+  alias: distribute-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: openshift-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: report-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: ci-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: cloud-lease-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: analytics-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: gc-k8s-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: aws-k8s-service
+- name: ch-chart-template
+  version: 0.1.0
+  alias: logging-agent
+- name: ch-chart-template
+  version: 0.1.0
+  alias: transform-service-linux
+- name: ch-chart-template
+  version: 0.1.0
+  alias: transform-service-windows
+- name: ch-chart-template
+  version: 0.1.0
+  alias: logging-service
+# - name: ch-chart-template
+#   version: 0.1.0
+#   alias: discover-service-aix

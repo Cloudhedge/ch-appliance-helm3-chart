@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-app-service-urls
+data:
+  {{- if .Values.appHost }}
+  APP_HOST: {{ .Values.appHost }}
+  {{- end }}
+  {{- if .Values.elkHost }}
+  ELKHOST: {{ .Values.elkHost }}
+  {{- end }}
+  {{- $_ := set . "tempsvc" "auth-gateway-service" }}
+  AUTH_GATEWAY_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "core-engine" }}
+  CORE_ENGINE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "cloud-infra-service" }}
+  CLOUD_INFRA_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "infra-usage-analysis-engine" }}
+  INFRA_USAGE_ANALYSIS_ENGINE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "repository-service" }}
+  REPOSITORY_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "notification-service" }}
+  NOTIFICATION_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "vault-service" }}
+  VAULT_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "activity-service" }}
+  ACTIVITY_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "openshift-service" }}
+  OPENSHIFT_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "k8s-helm-service" }}
+  K8S_HELM_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "discover-service-aix" }}
+  DISCOVER_SERVICE_AIX_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "discover-service-hpux" }}
+  DISCOVER_SERVICE_HPUX_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "discover-service-linux" }}
+  DISCOVER_SERVICE_LINUX_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "discover-service-windows" }}
+  DISCOVER_SERVICE_WINDOWS_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "report-service" }}
+  REPORT_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "ci-service" }}
+  CI_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "cloud-lease-service" }}
+  CLOUD_LEASE_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "analytics-service" }}
+  ANALYTICS_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "gc-k8s-service" }}
+  GC_K8S_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "aws-k8s-service" }}
+  AWS_K8S_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "distribute-service" }}
+  DISTRIBUTE_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "logging-agent" }}
+  LOGGING_AGENT_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "transform-service-linux" }}
+  TRANSFORM_SERVICE_LINUX_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "transform-service-windows" }}
+  TRANSFORM_SERVICE_WINDOWS_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "logging-service" }}
+  LOGGING_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "transform-service-aix" }}
+  TRANSFORM_SERVICE_AIX_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "transform-service-hpux" }}
+  TRANSFORM_SERVICE_HPUX_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "ch-user-guide" }}
+  CH_USER_GUIDE_URL: {{ include "cloudhedge.services.url" . }}
