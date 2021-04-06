@@ -1,0 +1,42 @@
+replicaCount: 1
+global:
+  pvcName: false
+  image:
+    registry: registry.connect.redhat.com/cloudhedge
+container:
+  ports:
+    - containerPort: 80
+  livenessProbe:
+    initialDelaySeconds: 10
+    httpGet:
+      path: /
+      port: http
+  readinessProbe:
+    initialDelaySeconds: 10
+    httpGet:
+      path: /
+      port: http
+image:
+  tag: "ch-rel-1.3.3"
+  pullPolicy: Always
+nameOverride: ""
+fullnameOverride: ""
+service:
+  annotations: {}
+  type: ClusterIP
+  sessionAffinity: ClientIP
+  ports:
+    - port: 80
+ingress:
+  servicePort: 80
+  enabled: false
+  annotations: {}
+  path: /
+  tls: []
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+envRefs: []
+envs: []
+imagePullSecrets: []

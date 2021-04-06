@@ -1,0 +1,180 @@
+#should be overriden while deployment
+# serviceAccount: ch-service
+nameOverride: ""
+fullnameOverride: ""
+appHost: ""
+elkHost: ""
+
+global:
+  pvcName: false
+  secrets:
+    DB_USER: "<placeholder>"
+    DB_PASSWORD: "<placeholder>"
+    DB_PROTO: "<placeholder>"
+    DB_URL_WITH_PORT: "<placeholder>"
+    DB_NAME: "<placeholder>"
+    JWT_SECRET: "<placeholder>"
+    ENCRYPT_SECRET: "<placeholder>"
+  image:
+    registry: registry.connect.redhat.com/cloudhedge
+    tag: ch-rel-1.3.3
+    # imagePullSecrets:
+    # - name: dockerpullsecret
+    # in case of docker hub, quey.io provide username and password
+    # username: <placeholder>
+    # password: <placeholder>
+
+webapp:
+  # nameOverride: webapp
+  container:
+    ports:
+      - containerPort: 8443
+        name: https
+        targetPort: 8443
+    livenessProbe:
+      initialDelaySeconds: 10
+      httpGet:
+        path: /
+        port: 8443
+        scheme: HTTPS
+    readinessProbe:
+      initialDelaySeconds: 10
+      httpGet:
+        path: /
+        port: 8443
+        scheme: HTTPS
+  # image:
+  #   repository: webapp
+  #   tag: ch-rel-1.3.3 #tag-to-replace-webapp
+  # envRefs:
+  #   - type: secretRef
+  #     ref: ch-secret
+  service:
+    type: LoadBalancer
+    sessionAffinity: ClientIP
+    ports: 
+    - port: 443
+      targetPort: 8443
+      name: https
+
+logging-agent:
+  container:
+    livenessProbe: {}
+    readinessProbe: {}
+    ports:
+      - containerPort: 8888
+
+logging-service:
+  container:
+    ports:
+      - containerPort: 4015
+
+auth-gateway-service:
+  container:
+    ports:
+      - containerPort: 3000
+
+core-engine:
+  container:
+    ports:
+      - containerPort: 3001
+
+cloud-infra-service:
+  container:
+    ports:
+      - containerPort: 3002
+
+infra-usage-analysis-engine:
+  container:
+    ports:
+      - containerPort: 3003
+
+repository-service:
+  container:
+    ports:
+      - containerPort: 3004
+
+notification-service:
+  container:
+    ports:
+      - containerPort: 3005
+
+vault-service:
+  container:
+    ports:
+      - containerPort: 3006
+
+activity-service:
+  container:
+    ports:
+      - containerPort: 3007
+
+k8s-helm-service:
+  container:
+    ports:
+      - containerPort: 4008
+  
+discover-service-aix:
+  container:
+    ports:
+      - containerPort: 5006
+
+discover-service-linux:
+  container:
+    ports:
+      - containerPort: 5001
+
+discover-service-windows:
+  container:
+    ports:
+      - containerPort: 5005
+
+distribute-service:
+  container:
+    ports:
+      - containerPort: 5002
+
+openshift-service:
+  container:
+    ports:
+      - containerPort: 3008
+
+report-service:
+  container:
+    ports:
+      - containerPort: 3009
+
+ci-service:
+  container:
+    ports:
+      - containerPort: 6001
+
+cloud-lease-service:
+  container:
+    ports:
+      - containerPort: 3010
+
+analytics-service:
+  container:
+    ports:
+      - containerPort: 7001
+
+gc-k8s-service:
+  container:
+    ports:
+      - containerPort: 4003
+
+aws-k8s-service:
+  container:
+    ports:
+      - containerPort: 4002
+
+transform-service-linux:
+  container:
+    ports:
+      - containerPort: 5003
+
+transform-service-windows:
+  container:
+    ports:
+      - containerPort: 5004
