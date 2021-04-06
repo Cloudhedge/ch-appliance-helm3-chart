@@ -11,4 +11,4 @@ maintainers:
   - name: Cloudhedge Engg
     email: engg@cloudhedge.io
 name: ch-chart-template
-version: 0.1.0
+version: 1.4.1-ubi83
