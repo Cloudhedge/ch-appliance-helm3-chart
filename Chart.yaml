@@ -1,6 +1,6 @@
 apiVersion: v2
 name: ch-appliance-helmchart
-version: 1.4.1-ubi83
+version: 1.4.1
 description: Cloudhedge Helm chart for Appliance
 keywords:
   - cloudhedge
@@ -8,82 +8,82 @@ keywords:
   - kubernetes
 home: https://cloudhedge.io
 maintainers:
-  - name: Engineering team
+  - name: Cloudhedge Engineering team
     email: engg@cloudhedge.io
-appVersion: 1.0
+appVersion: 1.4.1
 dependencies:
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: webapp
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: auth-gateway-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: core-engine
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: cloud-infra-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: infra-usage-analysis-engine
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: notification-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: repository-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: vault-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: activity-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: k8s-helm-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: discover-service-linux
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: discover-service-windows  
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: distribute-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: openshift-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: report-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: ci-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: cloud-lease-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: analytics-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: gc-k8s-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: aws-k8s-service
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: logging-agent
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: transform-service-linux
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: transform-service-windows
 - name: ch-chart-template
-  version: 1.4.1-ubi83
+  version: 1.4.1
   alias: logging-service
 # - name: ch-chart-template
-#   version: 1.4.1-ubi83
+#   version: 1.4.1
 #   alias: discover-service-aix

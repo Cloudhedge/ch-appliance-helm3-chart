@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: 1.0
+appVersion: 1.4.1
 description: Helm chart template for Cloudhedge apps
 keywords:
   - cloudhedge
@@ -11,4 +11,4 @@ maintainers:
   - name: Cloudhedge Engg
     email: engg@cloudhedge.io
 name: ch-chart-template
-version: 1.4.1-ubi83
+version: 1.4.1

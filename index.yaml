@@ -2,107 +2,107 @@ apiVersion: v1
 entries:
   ch-appliance-helmchart:
   - apiVersion: v2
-    appVersion: "1"
-    created: "2021-04-06T13:24:35.486391+05:30"
+    appVersion: 1.4.1
+    created: "2021-04-06T13:33:40.793861+05:30"
     dependencies:
     - alias: webapp
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: auth-gateway-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: core-engine
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: cloud-infra-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: infra-usage-analysis-engine
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: notification-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: repository-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: vault-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: activity-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: k8s-helm-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: discover-service-linux
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: discover-service-windows
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: distribute-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: openshift-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: report-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: ci-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: cloud-lease-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: analytics-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: gc-k8s-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: aws-k8s-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: logging-agent
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: transform-service-linux
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: transform-service-windows
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     - alias: logging-service
       name: ch-chart-template
       repository: ""
-      version: 1.4.1-ubi83
+      version: 1.4.1
     description: Cloudhedge Helm chart for Appliance
-    digest: a6ec5e7271745ae921b839848fd938f07e0ebb6072bc05c30a8182e3a2164f79
+    digest: f07e13a82756137d77e208c6e5d5cce30a3e39b7c786fea43f10cd9504f7f359
     home: https://cloudhedge.io
     keywords:
     - cloudhedge
@@ -110,9 +110,9 @@ entries:
     - kubernetes
     maintainers:
     - email: engg@cloudhedge.io
-      name: Engineering team
+      name: Cloudhedge Engineering team
     name: ch-appliance-helmchart
     urls:
-    - ch-appliance-helmchart-1.4.1-ubi83.tgz
-    version: 1.4.1-ubi83
-generated: "2021-04-06T13:24:35.478504+05:30"
+    - ch-appliance-helmchart-1.4.1.tgz
+    version: 1.4.1
+generated: "2021-04-06T13:33:40.789068+05:30"
