@@ -3,7 +3,7 @@ entries:
   ch-appliance-helmchart:
   - apiVersion: v2
     appVersion: 1.4.1
-    created: "2021-04-06T17:24:10.658109+05:30"
+    created: "2021-04-15T19:41:20.559617+05:30"
     dependencies:
     - alias: webapp
       name: ch-chart-template
@@ -102,7 +102,7 @@ entries:
       repository: ""
       version: 1.4.1
     description: Cloudhedge Helm chart for Appliance
-    digest: 85217061d80430d42e1107cb08b13d71f917553bd4d86a9c5b668a77365c5c93
+    digest: a299850e4169f17fa15660e3b209d02472f6b510071992f7ae427f8f341553df
     home: https://cloudhedge.io
     keywords:
     - cloudhedge
@@ -115,4 +115,4 @@ entries:
     urls:
     - ch-appliance-helmchart-1.4.1.tgz
     version: 1.4.1
-generated: "2021-04-06T17:24:10.651088+05:30"
+generated: "2021-04-15T19:41:20.551966+05:30"
