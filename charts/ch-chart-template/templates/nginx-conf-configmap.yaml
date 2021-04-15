@@ -1,0 +1,271 @@
+{{- if eq .Chart.Name "webapp" -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-webapp
+data:
+  mime.types: |
+    types {
+      text/html                                        html htm shtml;
+      text/css                                         css;
+      text/xml                                         xml;
+      image/gif                                        gif;
+      image/jpeg                                       jpeg jpg;
+      application/javascript                           js;
+      application/atom+xml                             atom;
+      application/rss+xml                              rss;
+      text/mathml                                      mml;
+      text/plain                                       txt;
+      text/vnd.sun.j2me.app-descriptor                 jad;
+      text/vnd.wap.wml                                 wml;
+      text/x-component                                 htc;
+      image/png                                        png;
+      image/svg+xml                                    svg svgz;
+      image/tiff                                       tif tiff;
+      image/vnd.wap.wbmp                               wbmp;
+      image/webp                                       webp;
+      image/x-icon                                     ico;
+      image/x-jng                                      jng;
+      image/x-ms-bmp                                   bmp;
+      font/woff                                        woff;
+      font/woff2                                       woff2;
+      application/java-archive                         jar war ear;
+      application/json                                 json;
+      application/mac-binhex40                         hqx;
+      application/msword                               doc;
+      application/pdf                                  pdf;
+      application/postscript                           ps eps ai;
+      application/rtf                                  rtf;
+      application/vnd.apple.mpegurl                    m3u8;
+      application/vnd.google-earth.kml+xml             kml;
+      application/vnd.google-earth.kmz                 kmz;
+      application/vnd.ms-excel                         xls;
+      application/vnd.ms-fontobject                    eot;
+      application/vnd.ms-powerpoint                    ppt;
+      application/vnd.oasis.opendocument.graphics      odg;
+      application/vnd.oasis.opendocument.presentation  odp;
+      application/vnd.oasis.opendocument.spreadsheet   ods;
+      application/vnd.oasis.opendocument.text          odt;
+      application/vnd.openxmlformats-officedocument.presentationml.presentation pptx;
+      application/vnd.openxmlformats-officedocument.spreadsheetml.sheet xlsx;
+      application/vnd.openxmlformats-officedocument.wordprocessingml.document docx;
+      application/vnd.wap.wmlc                         wmlc;
+      application/x-7z-compressed                      7z;
+      application/x-cocoa                              cco;
+      application/x-java-archive-diff                  jardiff;
+      application/x-java-jnlp-file                     jnlp;
+      application/x-makeself                           run;
+      application/x-perl                               pl pm;
+      application/x-pilot                              prc pdb;
+      application/x-rar-compressed                     rar;
+      application/x-redhat-package-manager             rpm;
+      application/x-sea                                sea;
+      application/x-shockwave-flash                    swf;
+      application/x-stuffit                            sit;
+      application/x-tcl                                tcl tk;
+      application/x-x509-ca-cert                       der pem crt;
+      application/x-xpinstall                          xpi;
+      application/xhtml+xml                            xhtml;
+      application/xspf+xml                             xspf;
+      application/zip                                  zip;
+      application/octet-stream                         bin exe dll;
+      application/octet-stream                         deb;
+      application/octet-stream                         dmg;
+      application/octet-stream                         iso img;
+      application/octet-stream                         msi msp msm;
+      audio/midi                                       mid midi kar;
+      audio/mpeg                                       mp3;
+      audio/ogg                                        ogg;
+      audio/x-m4a                                      m4a;
+      audio/x-realaudio                                ra;
+      video/3gpp                                       3gpp 3gp;
+      video/mp2t                                       ts;
+      video/mp4                                        mp4;
+      video/mpeg                                       mpeg mpg;
+      video/quicktime                                  mov;
+      video/webm                                       webm;
+      video/x-flv                                      flv;
+      video/x-m4v                                      m4v;
+      video/x-mng                                      mng;
+      video/x-ms-asf                                   asx asf;
+      video/x-ms-wmv                                   wmv;
+      video/x-msvideo                                  avi;
+    }
+  nginx.conf: |
+    worker_processes auto;
+    worker_rlimit_nofile 100000;
+    error_log /var/log/nginx/error.log crit;
+    pid /var/log/nginx/nginx.pid;
+    events {
+        worker_connections 4000;
+        use epoll;
+        multi_accept on;
+    }
+
+    http {
+        server_tokens off;
+        add_header X-XSS-Protection "1; mode=block";
+        add_header X-Frame-Options "SAMEORIGIN";
+        add_header X-Content-Type-Options nosniff;
+        add_header Content-Security-Policy "default-src 'self';script-src 'self' 'unsafe-inline';";
+        open_file_cache max=200000 inactive=20s;
+        open_file_cache_valid 30s;
+        open_file_cache_min_uses 2;
+        open_file_cache_errors on;
+        access_log off;
+        sendfile on;
+        tcp_nopush on;
+        tcp_nodelay on;
+        gzip on;
+        gzip_vary on;
+        gzip_min_length 10240;
+        gzip_proxied expired no-cache no-store private auth;
+        gzip_types  text/plain
+                    text/css
+                    text/javascript
+                    application/javascript
+                    application/json
+                    application/x-javascript
+                    text/xml
+                    application/xml
+                    application/xml+rss
+                    image/svg+xml;
+        gzip_buffers 16 8k;
+        gzip_comp_level 6;
+        gzip_disable "MSIE [1-6]\.";
+        reset_timedout_connection on;
+        client_body_timeout 10;
+        send_timeout 2;
+        keepalive_timeout 30;
+        keepalive_requests 100000;
+        map $http_upgrade $connection_upgrade {
+            default upgrade;
+            '' close;
+        }
+        include mime.types;
+        default_type application/octet-stream;
+        upstream auth_gateway_service {
+            server {{ printf "%s-%s" .Release.Name "auth-gateway-service" | trunc 63 | trimSuffix "-" }};
+            ip_hash;
+            keepalive 512;
+            keepalive_requests 100000;
+        }
+        upstream notification_service {
+            server {{ printf "%s-%s" .Release.Name "notification-service" | trunc 63 | trimSuffix "-" }};
+            ip_hash;
+            keepalive 512;
+            keepalive_requests 100000;
+            keepalive_timeout 900;
+        }
+        server {
+            listen 8080;
+            server_name localhost;
+            if ($request_method !~ ^(GET|POST|PUT|DELETE)$){   
+              return 444;
+            }           
+            if ($http_x_forwarded_proto != 'https') {
+                set $do_redirect  "${do_redirect}ES";
+            }
+            if ($do_redirect = YES) {
+                return 301 https://$host$request_uri;
+            }
+            error_log /var/log/nginx/error.log;
+            client_max_body_size 100M;
+            large_client_header_buffers 8 32k;
+            location / {
+                root   /var/www/webapp;
+                index  index.html index.htm;
+                expires 7d;
+                add_header Pragma public;
+                add_header Cache-Control "public";
+                add_header X-XSS-Protection "1; mode=block";
+                add_header X-Frame-Options "SAMEORIGIN";
+                add_header X-Content-Type-Options nosniff;
+                error_page 404 /webapp-2.html;
+            }
+            location /discover {
+              try_files $uri /dnt-app.index.html;
+            }
+            location /discover-report {
+              try_files $uri /dnt-app.index.html;
+            }
+            location /transform {
+              try_files $uri /dnt-app.index.html;
+            }
+            location /current-version {
+              try_files $uri /dnt-app.index.html;
+            }
+            location /apis {
+              try_files $uri /dnt-app.index.html;
+            }
+            location /user-management {
+              try_files $uri /dnt-app.index.html;
+            }
+            location /configurations {
+              try_files $uri /dnt-app.index.html;
+            }
+            location /cloudLease {
+              try_files $uri /webapp-2.html;
+            }
+            location /config-deployment {
+              try_files $uri /webapp-2.html;
+            }
+            location /vault {
+              try_files $uri /webapp-2.html;
+            }
+            location /discovery-report {
+              try_files $uri /webapp-2.html;
+            }
+            location /discovery-logs {
+              try_files $uri /webapp-2.html;
+            }
+            location /subscription {
+              try_files $uri /webapp-2.html;
+            }
+            location /logging-config {
+              try_files $uri /webapp-2.html;
+            }
+            location /discovery-phase2-logs {
+              try_files $uri /webapp-2.html;
+            }
+            location /image-scan-report {
+              try_files $uri /webapp-2.html;
+            }
+            location /api/notification-service/join {
+                keepalive_timeout 900;
+                rewrite ^/api/notification-service/(.*) /$1 break;
+                proxy_pass http://notification_service;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                # for scoket.io
+                proxy_connect_timeout       900;
+                proxy_send_timeout          900;
+                proxy_read_timeout	        900;
+                send_timeout                900;
+                proxy_buffering    off;
+                proxy_buffer_size  128k;
+                proxy_buffers 100  128k;
+            }
+            location /api {
+              # rewrite ^/api/(.*) /$1 break;
+              proxy_pass http://auth_gateway_service;
+              proxy_http_version 1.1;
+              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection 'upgrade';
+              proxy_set_header Host $host;
+              proxy_cache_bypass $http_upgrade;
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+              proxy_buffering    off;
+              proxy_buffer_size  128k;
+              proxy_buffers 100  128k;
+            }
+        }
+    }
+  
+{{- end -}}

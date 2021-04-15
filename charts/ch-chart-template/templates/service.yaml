@@ -12,15 +12,17 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  type: {{ .Values.service.type }}
+  {{- if eq .Chart.Name "webapp" }}
+  type: {{ .Values.global.webappExposeType | default "ClusterIP"}}
+  {{- else }}
+  type: ClusterIP
+  {{- end }}
   sessionAffinity: {{ .Values.service.sessionAffinity }}
   ports:
-    {{- range .Values.service.ports }}
-    - port: {{ .port }}
-      targetPort: {{ default "http" .targetPort }}
-      protocol: {{ default "TCP" .protocol }}
-      name: {{ default "http" .name | quote }}
-    {{- end }}
+  - port: 80
+    targetPort: {{ include "findContainerPort" ( dict "component" .Chart.Name ) }}
+    protocol: TCP
+    name: http
   selector:
     app: {{ include "ch-chart-template.name" . }}
     release: {{ .Release.Name }}

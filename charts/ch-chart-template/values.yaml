@@ -1,11 +1,11 @@
 replicaCount: 1
 global:
-  pvcName: false
+  pvcName: ""
   image:
     registry: registry.connect.redhat.com/cloudhedge
 container:
-  ports:
-    - containerPort: 80
+  # ports:
+  #   - containerPort: 80
   livenessProbe:
     initialDelaySeconds: 10
     httpGet:
@@ -25,8 +25,8 @@ service:
   annotations: {}
   type: ClusterIP
   sessionAffinity: ClientIP
-  ports:
-    - port: 80
+  # ports:
+  #   - port: 80
 ingress:
   servicePort: 80
   enabled: false

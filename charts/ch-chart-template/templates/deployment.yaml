@@ -20,33 +20,33 @@ spec:
         release: {{ .Release.Name }}
     spec:
       imagePullSecrets:
-        {{- if .Values.global.image.username }}
-          - name: {{ .Release.Name }}-image-pull-secret
-        {{- else if .Values.global.image.imagePullSecrets }}
-          {{- range .Values.global.image.imagePullSecrets }}
-            - name: {{ .name }}
-          {{- end }}
-        # {{- else }}
-        # []
+      {{- if .Values.global.image.username }}
+        - name: {{ .Release.Name }}-image-pull-secret
+      {{- else if .Values.global.image.imagePullSecrets }}
+        {{- range .Values.global.image.imagePullSecrets }}
+        - name: {{ .name }}
         {{- end }}
-        
-      {{- if .Values.global.pvcName }}
+      {{- end }}
       volumes:
+      {{- if .Values.global.pvcName }}
       - name: ch-pvc
         persistentVolumeClaim:
           claimName: {{ .Values.global.pvcName }}
       {{- end }}
+      {{- if eq .Chart.Name "webapp" }}
+      - name: webapp-config
+        configMap:
+          name: {{ .Release.Name }}-webapp
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          image: {{ printf "%s/%s:%s" .Values.global.image.registry (.Values.image.repository | default .Chart.Name )  (.Values.image.tag | default .Values.global.image.tag ) }}
+          image: {{ printf "%s/%s:%s" (.Values.global.image.registry | default "registry.connect.redhat.com/cloudhedge") (.Values.image.repository | default .Chart.Name )  (.Values.image.tag | default ( .Values.global.image.tag | default "ch-rel-1.3.3" )) }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - configMapRef:
                 name: {{ .Release.Name }}-app-service-urls
-            {{- if .Values.global.secrets }}
             - secretRef:
                 name: {{ .Release.Name }}-secret
-            {{- end }}
             {{- if .Values.envRefs }}
             {{- range .Values.envRefs }}
             {{- if eq .type "configMapRef" }}
@@ -66,25 +66,31 @@ spec:
             {{- end }}
           {{- end }}
           ports:
-            {{- range .Values.container.ports }}
-            - name: {{ default "http" .name }}
-              containerPort: {{ .containerPort }}
-              protocol: {{ default "TCP" .protocol }}
-            {{- end }}
-          {{- if .Values.global.pvcName  }}
+          - name: http
+            containerPort: {{ include "findContainerPort" ( dict "component" .Chart.Name ) }}
+            protocol: TCP
           volumeMounts:
+            {{- if eq .Chart.Name "webapp" }}
+            - name: webapp-config
+              mountPath: /etc/nginx/
+            {{- end }}
+            {{- if .Values.global.pvcName  }}
             - name: ch-pvc
               mountPath: /opt/cloudhedge/shared
-          {{- end }}
+            {{- end }}
           {{- if ne .Chart.Name "logging-agent" }}
-          {{- if .Values.container.livenessProbe }}
           livenessProbe:
-{{ toYaml .Values.container.livenessProbe | indent 12 }}
-          {{- end }}
-          {{- if .Values.container.readinessProbe }}
+            initialDelaySeconds: 10
+            httpGet:
+              path: /
+              port: {{ include "findContainerPort" ( dict "component" .Chart.Name ) }}
+              scheme: HTTP
           readinessProbe:
-{{ toYaml .Values.container.readinessProbe | indent 12 }}
-          {{- end }}
+            initialDelaySeconds: 10
+            httpGet:
+              path: /
+              port: {{ include "findContainerPort" ( dict "component" .Chart.Name ) }}
+              scheme: HTTP
           {{- end }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
