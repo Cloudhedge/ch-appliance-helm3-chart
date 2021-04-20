@@ -36,10 +36,10 @@ The following tables lists the configurable parameters of the `CloudHedge Enterp
 | `global.image.registry`   | Global Container image registry                    | `registry.connect.redhat.com/cloudhedge`                                                   |
 | `global.image.tag` | Global Container image tag | `ch-rel-1.3.3`  |
 | `global.image.imagePullSecrets` | Global Container registry secret names as an array | `[]` (does not add image pull secrets to deployed pods) |
-| `global.image.username` & `global.image.password` | All `CloudHedge` component images are available in private repository. One can give username and password of the registry to pull the images. This helm chart creates a docker secret for you.  | `nil`  |
+| `global.image.username` | All `CloudHedge` component images are available in private repository. One can give username and password of the registry to pull the images. This helm chart creates a docker secret for you. Set value = docker registry username | `nil`  |
+| `global.image.password` | All `CloudHedge` component images are available in private repository. One can give username and password of the registry to pull the images. This helm chart creates a docker secret for you. Set value = docker registry password | `nil`  |
 | `global.db.dbUser` | MongoDB Username | `nil` |
 | `global.db.dbPassword` | MongoDB Password | `nil` |
-| `global.db.dbUrl` | MongoDB Protocol | `nil` |
 | `global.db.dbUrl` | MongoDB URL with port number. This URL should be reachable from all `Cloudhedge Enterprise` Pods | `nil` |
 | `global.db.dbName` | MongoDB Database name | `nil` |
 | `global.jwtSecret` | JWT secret value, give a random string. this string is used to encrypt JWT token | `theJWTSuperSecretValue`  |
