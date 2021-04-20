@@ -37,9 +37,9 @@ Create chart name and version as used by the chart label.
 
 {{- define "imagePullSecret" }}
 {{- if .Values.global.image.ecrtoken }}
-{{- printf "{\"auths\": {\"%s\": {\"auth\": \"%s\"}}}" .Values.global.image.registry .Values.global.image.ecrtoken | b64enc }}
+{{- printf "{\"auths\": {\"%s\": {\"auth\": \"%s\"}}}" (.Values.global.image.registry | default "registry.connect.redhat.com/cloudhedge") .Values.global.image.ecrtoken | b64enc }}
 {{- else }}
-{{- printf "{\"auths\": {\"%s\": {\"auth\": \"%s\"}}}" .Values.global.image.registry (printf "%s:%s" .Values.global.image.username .Values.global.image.password | b64enc) | b64enc }}
+{{- printf "{\"auths\": {\"%s\": {\"auth\": \"%s\"}}}" (.Values.global.image.registry | default "registry.connect.redhat.com/cloudhedge") (printf "%s:%s" .Values.global.image.username .Values.global.image.password | b64enc) | b64enc }}
 {{- end}}
 {{- end }}
 
