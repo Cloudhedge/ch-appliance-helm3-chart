@@ -44,6 +44,7 @@ The following tables lists the configurable parameters of the `CloudHedge Enterp
 | `global.db.dbName` | MongoDB Database name | `nil` |
 | `global.jwtSecret` | JWT secret value, give a random string. this string is used to encrypt JWT token | `theJWTSuperSecretValue`  |
 | `global.encryptSecret` | random string. this sting is used to encrypt sensitive data in DB | `theEncryptSuperSecretValue` |
+| `global.webappExposeType` | How to expose the webapp? Possible values are: LoadBalancer, ClusterIP and NodePort  | `ClusterIP` |
 
 
 ## Common parameters
