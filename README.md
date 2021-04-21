@@ -38,10 +38,10 @@ The following tables lists the configurable parameters of the `CloudHedge Enterp
 | `global.image.imagePullSecrets` | Global Container registry secret names as an array | `[]` (does not add image pull secrets to deployed pods) |
 | `global.image.username` | All `CloudHedge` component images are available in private repository. One can give username and password of the registry to pull the images. This helm chart creates a docker secret for you. Set value = docker registry username | `nil`  |
 | `global.image.password` | All `CloudHedge` component images are available in private repository. One can give username and password of the registry to pull the images. This helm chart creates a docker secret for you. Set value = docker registry password | `nil`  |
-| `global.db.dbUser` | MongoDB Username | `nil` |
-| `global.db.dbPassword` | MongoDB Password | `nil` |
-| `global.db.dbUrl` | MongoDB URL with port number. This URL should be reachable from all `Cloudhedge Enterprise` Pods | `nil` |
-| `global.db.dbName` | MongoDB Database name | `nil` |
+| `db.dbUser` | MongoDB Username | `nil` |
+| `db.dbPassword` | MongoDB Password | `nil` |
+| `db.dbUrl` | MongoDB URL with port number. This URL should be reachable from all `Cloudhedge Enterprise` Pods | `nil` |
+| `db.dbName` | MongoDB Database name | `nil` |
 | `global.jwtSecret` | JWT secret value, give a random string. this string is used to encrypt JWT token | `theJWTSuperSecretValue`  |
 | `global.encryptSecret` | random string. this sting is used to encrypt sensitive data in DB | `theEncryptSuperSecretValue` |
 | `global.webappExposeType` | How to expose the webapp? Possible values are: LoadBalancer, ClusterIP and NodePort  | `ClusterIP` |

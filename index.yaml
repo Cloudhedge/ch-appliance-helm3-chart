@@ -3,7 +3,121 @@ entries:
   ch-appliance-helmchart:
   - apiVersion: v2
     appVersion: 1.4.1
-    created: "2021-04-20T16:43:38.962909+05:30"
+    created: "2021-04-21T11:15:03.67338+05:30"
+    dependencies:
+    - alias: webapp
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: auth-gateway-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: core-engine
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: cloud-infra-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: infra-usage-analysis-engine
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: notification-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: repository-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: vault-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: activity-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: k8s-helm-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: discover-service-linux
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: discover-service-windows
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: distribute-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: openshift-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: report-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: ci-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: cloud-lease-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: analytics-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: gc-k8s-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: aws-k8s-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: logging-agent
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: transform-service-linux
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: transform-service-windows
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    - alias: logging-service
+      name: ch-chart-template
+      repository: ""
+      version: 1.4.1
+    description: Cloudhedge Helm chart for Appliance
+    digest: adce707c346b018ae5e63be76499e6e375a7ea641094f46ec2bb6fd7e58291cf
+    home: https://cloudhedge.io
+    keywords:
+    - cloudhedge
+    - chart
+    - kubernetes
+    maintainers:
+    - email: engg@cloudhedge.io
+      name: Cloudhedge Engineering team
+    name: ch-appliance-helmchart
+    urls:
+    - ch-appliance-helmchart-1.4.2.tgz
+    version: 1.4.2
+  - apiVersion: v2
+    appVersion: 1.4.1
+    created: "2021-04-21T11:15:03.66826+05:30"
     dependencies:
     - alias: webapp
       name: ch-chart-template
@@ -115,4 +229,4 @@ entries:
     urls:
     - ch-appliance-helmchart-1.4.1.tgz
     version: 1.4.1
-generated: "2021-04-20T16:43:38.95087+05:30"
+generated: "2021-04-21T11:15:03.66241+05:30"

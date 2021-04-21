@@ -38,6 +38,17 @@ spec:
         configMap:
           name: {{ .Release.Name }}-webapp
       {{- end }}
+      initContainers:
+        - name: {{ .Chart.Name }}-init
+          image: registry.access.redhat.com/ubi8/ubi:8.3
+          command: ["/bin/sh", "-c", "mkdir -p /opt/cloudhedge/shared/ && chmod -R 777 /opt/cloudhedge/shared/"]
+          {{- if .Values.global.pvcName  }}
+          volumes:
+          - name: ch-pvc
+            mountPath: /opt/cloudhedge/shared
+          {{- end }}
+          securityContext:
+            runAsUser: 0
       containers:
         - name: {{ .Chart.Name }}
           image: {{ printf "%s/%s:%s" (.Values.global.image.registry | default "registry.connect.redhat.com/cloudhedge") (.Values.image.repository | default .Chart.Name )  (.Values.image.tag | default ( .Values.global.image.tag | default "ch-rel-1.3.3" )) }}
@@ -81,12 +92,14 @@ spec:
           {{- if ne .Chart.Name "logging-agent" }}
           livenessProbe:
             initialDelaySeconds: 10
+            periodSeconds: 10
             httpGet:
               path: /
               port: {{ include "findContainerPort" ( dict "component" .Chart.Name ) }}
               scheme: HTTP
           readinessProbe:
-            initialDelaySeconds: 10
+            initialDelaySeconds: 5
+            periodSeconds: 5
             httpGet:
               path: /
               port: {{ include "findContainerPort" ( dict "component" .Chart.Name ) }}
