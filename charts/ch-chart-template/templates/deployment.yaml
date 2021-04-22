@@ -2,22 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "ch-chart-template.fullname" . }}
-  labels:
-    app: {{ include "ch-chart-template.name" . }}
-    chart: {{ include "ch-chart-template.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+  labels: {{- include "standardlabels" . | nindent 4 }}
+    {{- if .Values.global.commonLabels }}
+    {{- include "commonlabels" ( dict "value" .Values.global.commonLabels "context" $ ) | nindent 4 }}
+    {{- end }}
+  {{- if .Values.global.commonAnnotations }}
+  annotations: {{- include "commonlabels" ( dict "value" .Values.global.commonAnnotations "context" $ ) | nindent 4 }}
+  {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
-    matchLabels:
-      app: {{ include "ch-chart-template.name" . }}
-      release: {{ .Release.Name }}
+    matchLabels: {{- include "standardlabels" . | nindent 6 }}
   template:
     metadata:
-      labels:
-        app: {{ include "ch-chart-template.name" . }}
-        release: {{ .Release.Name }}
+      labels: {{- include "standardlabels" . | nindent 8 }}
     spec:
       imagePullSecrets:
       {{- if .Values.global.image.username }}
@@ -33,7 +31,7 @@ spec:
         persistentVolumeClaim:
           claimName: {{ .Values.global.pvcName }}
       {{- end }}
-      {{- if eq .Chart.Name "webapp" }}
+      {{- if and (eq (.Values.global.webappProtocol | default "HTTP") "HTTP") (eq .Chart.Name "webapp") }}
       - name: webapp-config
         configMap:
           name: {{ .Release.Name }}-webapp
@@ -52,7 +50,7 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           image: {{ printf "%s/%s:%s" (.Values.global.image.registry | default "registry.connect.redhat.com/cloudhedge") (.Values.image.repository | default .Chart.Name )  (.Values.image.tag | default ( .Values.global.image.tag | default "ch-rel-1.3.3" )) }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.image.pullPolicy | default "IfNotPresent" }}
           envFrom:
             - configMapRef:
                 name: {{ .Release.Name }}-app-service-urls
@@ -77,11 +75,11 @@ spec:
             {{- end }}
           {{- end }}
           ports:
-          - name: http
-            containerPort: {{ include "findContainerPort" ( dict "component" .Chart.Name ) }}
+          - name: {{ include "findPortScheme" ( dict "component" .Chart.Name "protocol" (.Values.global.webappProtocol | default "HTTP")) | lower }}
+            containerPort: {{ include "findContainerPort" ( dict "component" .Chart.Name "protocol" (.Values.global.webappProtocol | default "HTTP")) }}
             protocol: TCP
           volumeMounts:
-            {{- if eq .Chart.Name "webapp" }}
+            {{- if and (eq (.Values.global.webappProtocol | default "HTTP") "HTTP") (eq .Chart.Name "webapp") }}
             - name: webapp-config
               mountPath: /etc/nginx/
             {{- end }}
@@ -95,15 +93,15 @@ spec:
             periodSeconds: 10
             httpGet:
               path: /
-              port: {{ include "findContainerPort" ( dict "component" .Chart.Name ) }}
-              scheme: HTTP
+              port: {{ include "findContainerPort" ( dict "component" .Chart.Name "protocol" (.Values.global.webappProtocol | default "HTTP") ) }}
+              scheme: {{ include "findPortScheme" ( dict "component" .Chart.Name "protocol" (.Values.global.webappProtocol | default "HTTP")) }}
           readinessProbe:
             initialDelaySeconds: 5
             periodSeconds: 5
             httpGet:
               path: /
-              port: {{ include "findContainerPort" ( dict "component" .Chart.Name ) }}
-              scheme: HTTP
+              port: {{ include "findContainerPort" ( dict "component" .Chart.Name "protocol" (.Values.global.webappProtocol | default "HTTP") ) }}
+              scheme: {{ include "findPortScheme" ( dict "component" .Chart.Name "protocol" (.Values.global.webappProtocol | default "HTTP")) }}
           {{- end }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}

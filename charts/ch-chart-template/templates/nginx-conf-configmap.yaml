@@ -1,8 +1,15 @@
-{{- if eq .Chart.Name "webapp" -}}
+{{- if and (eq (.Values.global.webappProtocol | default "HTTP") "HTTP") (eq .Chart.Name "webapp") -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-webapp
+  labels: {{- include "standardlabels" . | nindent 4 }}
+    {{- if .Values.global.commonLabels }}
+    {{- include "commonlabels" ( dict "value" .Values.global.commonLabels "context" $ ) | nindent 4 }}
+    {{- end }}
+  {{- if .Values.global.commonAnnotations }}
+  annotations: {{- include "commonlabels" ( dict "value" .Values.global.commonAnnotations "context" $ ) | nindent 4 }}
+  {{- end }}
 data:
   mime.types: |
     types {

@@ -1,30 +1,45 @@
-#should be overriden while deployment
-# serviceAccount: ch-service
+#should be overriden while deployment, Optional
 nameOverride: ""
 fullnameOverride: ""
 appHost: ""
 elkHost: ""
 
+# DB credentials, required
 db:
-  dbUser: "<placeholder>"
-  dbPassword: "<placeholder>"
-  dbUrl: "<placeholder>"
-  dbName: "<placeholder>"
+  dbUser: "<placeholder>" # DB username, required
+  dbPassword: "<placeholder>" # DB password, required
+  dbUrl: "<placeholder>" # DB URL with port, required
+  dbName: "<placeholder>" # Database name, required
+  dbProto: "<placeholder>" # DB protocol, Optional, default mongodb
 
-# global:
-#   pvcName: ""
-#   jwtSecret: "<placeholder>"
-#   encryptSecret: "<placeholder>"
-#   webappExposeType: LoadBalancer
+# Global params
+global: 
+#   pvcName: "" # Persistent volume claim name, make sure your PVC is available in a given namespace, Optional
+#   jwtSecret: "theEncryptSuperSecretValue" # JWT secret, Optional, default theJWTSuperSecretValue
+#   encryptSecret: theEncryptSuperSecretValue # Encrypt secret, Optional, default theEncryptSuperSecretValue
+#   webappExposeType: LoadBalancer # webapp expose type, Optional, default LoadBalancer, allowed values are LoadBalancer, NodePort and ClusterIP
+  webappProtocol: HTTPS # Webapp Protocol, optional, default HTTP, allowed values are HTTP and HTTPS
+
+#   # Add labels to all the deployed resources, Optional
+#   commonLabels: {}
+
+#   # Add annotations to all the deployed resources, Optional
+#   commonAnnotations: {}
+
+#   # Image details, Optional
 #   image:
-#     registry: registry.connect.redhat.com/cloudhedge
-#     tag: ch-rel-1.3.3
+#     registry: registry.connect.redhat.com/cloudhedge # container image registry, Optional, default registry.connect.redhat.com/cloudhedge 
+#     tag: ch-rel-1.3.3 # container image tag, Optional, default ch-rel-1.3.3
+
+#     # Image pull secrets, Optional
 #     imagePullSecrets:
 #     - name: dockerpullsecret
-#     in case of docker hub, quey.io provide username and password
+    
+#     # in case of private container registry, give user name and password to authenticate to pull the images, Optional
 #     username: <placeholder>
 #     password: <placeholder>
 
+# CloudHedge Appliance has 25+ micro-services, here we can override default params in each component, make sure to use correct component name, all are optional values
 # webapp:
 #   nameOverride: webapp
 #   container:
@@ -46,10 +61,8 @@ db:
 #         scheme: HTTPS
 #   image:
 #     repository: webapp
-#     tag: ch-rel-1.3.3 #tag-to-replace-webapp
-#   envRefs:
-#     - type: secretRef
-#       ref: ch-secret
+#     tag: ch-rel-1.3.3
+#     pullPolicy: IfNotPresent
 #   service:
 #     type: LoadBalancer
 #     sessionAffinity: ClientIP

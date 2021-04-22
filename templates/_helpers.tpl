@@ -43,10 +43,34 @@ Create chart name and version as used by the chart label.
 {{- end}}
 {{- end }}
 
+{{- define "findPortScheme" -}}
+{{- $portScheme :=  "HTTP" -}}
+{{- if eq .component "webapp" -}}
+	{{- if eq .protocol "HTTPS" -}}
+	{{- $portScheme =  "HTTPS" -}}
+	{{- end }}
+{{- end }}
+{{- printf "%s" $portScheme }}
+{{- end }}
+
+{{- define "findServicePort" -}}
+{{- $port :=  80 -}}
+{{- if eq .component "webapp" -}}
+	{{- if eq .protocol "HTTPS" -}}
+	{{- $port =  443 -}}
+	{{- end }}
+{{- end }}
+{{- printf "%d" $port }}
+{{- end }}
+
 {{- define "findContainerPort" -}}
 {{- $containerPort :=  8080 -}}
 {{- if eq .component "webapp" -}}
-{{- $containerPort =  8080 -}}
+	{{- if eq .protocol "HTTPS" }}
+	{{- $containerPort =  8443 -}}
+	{{- else }}
+    {{- $containerPort =  8080 -}}
+    {{- end }}
 {{- else if eq .component "logging-agent" -}}
 {{- $containerPort =  8888 -}}
 {{- else if eq .component "logging-service" -}}
@@ -98,3 +122,29 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 {{- printf "%d" $containerPort }}
 {{- end -}}
+
+
+
+{{/*
+Kubernetes standard labels
+*/}}
+{{- define "standardlabels" -}}
+app.kubernetes.io/name: {{ include "ch-chart-template.name" . }}
+helm.sh/chart: {{ include "ch-chart-template.chart" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end -}}
+
+{{/*
+Renders a value that contains template.
+Usage:
+{{ include "commonlabels" ( dict "value" .Values.path.to.the.Value "context" $) }}
+*/}}
+{{- define "commonlabels" -}}
+    {{- if typeIs "string" .value }}
+        {{- tpl .value .context }}
+    {{- else }}
+        {{- tpl (.value | toYaml) .context }}
+    {{- end }}
+{{- end -}}
+

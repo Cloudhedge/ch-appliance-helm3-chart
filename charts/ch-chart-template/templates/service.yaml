@@ -6,23 +6,24 @@ metadata:
   annotations:
 {{ toYaml . | indent 4 }}
 {{- end }}
-  labels:
-    app: {{ include "ch-chart-template.name" . }}
-    chart: {{ include "ch-chart-template.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+  labels: {{- include "standardlabels" . | nindent 4 }}
+    {{- if .Values.global.commonLabels }}
+    {{- include "commonlabels" ( dict "value" .Values.global.commonLabels "context" $ ) | nindent 4 }}
+    {{- end }}
+  {{- if .Values.global.commonAnnotations }}
+  annotations: {{- include "commonlabels" ( dict "value" .Values.global.commonAnnotations "context" $ ) | nindent 4 }}
+  {{- end }}
 spec:
   {{- if eq .Chart.Name "webapp" }}
-  type: {{ .Values.global.webappExposeType | default "ClusterIP"}}
+  type: {{ .Values.global.webappExposeType | default "LoadBalancer"}}
   {{- else }}
   type: ClusterIP
   {{- end }}
   sessionAffinity: {{ .Values.service.sessionAffinity }}
   ports:
-  - port: 80
-    targetPort: {{ include "findContainerPort" ( dict "component" .Chart.Name ) }}
+  - port: {{ include "findServicePort" ( dict "component" .Chart.Name  "protocol" (.Values.global.webappProtocol | default "HTTP") ) }}
+    targetPort: {{ include "findContainerPort" ( dict "component" .Chart.Name  "protocol" (.Values.global.webappProtocol | default "HTTP") ) }}
     protocol: TCP
-    name: http
-  selector:
-    app: {{ include "ch-chart-template.name" . }}
-    release: {{ .Release.Name }}
+    name: {{ include "findPortScheme" ( dict "component" .Chart.Name "protocol" (.Values.global.webappProtocol | default "HTTP")) | lower }}
+  selector: {{- include "standardlabels" . | nindent 4 }}
+    

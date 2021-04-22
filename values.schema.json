@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "required": [
+    "db"
+  ],
+  "properties": {
+    "db": {
+      "type": "object",
+      "required": [
+        "dbUser",
+        "dbPassword",
+        "dbUrl",
+        "dbName"
+      ],
+      "properties": {
+        "dbUser": {
+          "type": "string",
+          "not": {"enum":["<placeholder>",""]}
+        },
+        "dbPassword": {
+          "type": "string",
+          "not": {"enum":["<placeholder>",""]}
+        },
+        "dbUrl": {
+          "type": "string",
+          "not": {"enum":["<placeholder>",""]}
+        },
+        "dbName": {
+          "type": "string",
+          "not": {"enum":["<placeholder>",""]}
+        },
+        "dbProto": {
+         "type": "string" 
+        }
+      }
+    },
+    "global":{
+      "type": ["object", "null"],
+      "properties": {
+        "pvcName": {
+          "type": "string"
+        },
+        "jwtSecret": {
+          "type": "string"
+        }, 
+        "encryptSecret": {
+          "type": "string"
+        },
+        "webappExposeType": {
+          "type": "string",
+          "enum": ["LoadBalancer", "NodePort", "ClusterIP"]
+        },
+        "webappProtocol": {
+          "type": "string",
+          "enum": ["HTTP","HTTPS"]
+        },
+        "commonLabels": {
+          "type": "object"
+        },
+        "commonAnnotations": {
+          "type": "object"
+        },
+        "image": {
+          "type": "object",
+          "properties": {
+            "registry":{
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
+            },
+            "imagePullSecrets": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "username": {
+              "type": "string",
+              "not": {"enum":["<placeholder>",""]}
+            },
+            "password": {
+              "type": "string",
+              "not": {"enum":["<placeholder>",""]}
+            }
+          }
+        }
+      }
+    }
+  }
+}
