@@ -29,32 +29,39 @@ This chart sets up a `CloudHedge Enterprise` on a [Kubernetes](http://kubernetes
 
 The following tables lists the configurable parameters of the `CloudHedge Enterprise` chart and their default values per section/component:
 
+## Database Params
+| Parameter                 | Description | Default | Required |
+|---------------------------|---------------------------|---------------------------|---------------------------|
+| `db.dbUser` | MongoDB Username | `nil` | Yes |
+| `db.dbPassword` | MongoDB Password | `nil` | Yes | 
+| `db.dbUrl` | MongoDB URL with port number. This URL should be reachable from all `Cloudhedge Enterprise` Pods | `nil` | Yes |
+| `db.dbName` | MongoDB Database name | `nil` | Yes |
+| `db.dbProto` | MongoDB Protocol | `mongodb` |  NO |
+
 ### Global parameters
 
-| Parameter                 | Description                                     | Default                                                 |
-|---------------------------|-------------------------------------------------|---------------------------------------------------------|
-| `global.image.registry`   | Global Container image registry                    | `registry.connect.redhat.com/cloudhedge`                                                   |
-| `global.image.tag` | Global Container image tag | `ch-rel-1.3.3`  |
-| `global.image.imagePullSecrets` | Global Container registry secret names as an array | `[]` (does not add image pull secrets to deployed pods) |
-| `global.image.username` | All `CloudHedge` component images are available in private repository. One can give username and password of the registry to pull the images. This helm chart creates a docker secret for you. Set value = docker registry username | `nil`  |
-| `global.image.password` | All `CloudHedge` component images are available in private repository. One can give username and password of the registry to pull the images. This helm chart creates a docker secret for you. Set value = docker registry password | `nil`  |
-| `db.dbUser` | MongoDB Username | `nil` |
-| `db.dbPassword` | MongoDB Password | `nil` |
-| `db.dbUrl` | MongoDB URL with port number. This URL should be reachable from all `Cloudhedge Enterprise` Pods | `nil` |
-| `db.dbName` | MongoDB Database name | `nil` |
-| `global.jwtSecret` | JWT secret value, give a random string. this string is used to encrypt JWT token | `theJWTSuperSecretValue`  |
-| `global.encryptSecret` | random string. this sting is used to encrypt sensitive data in DB | `theEncryptSuperSecretValue` |
-| `global.webappExposeType` | How to expose the webapp? Possible values are: LoadBalancer, ClusterIP and NodePort  | `ClusterIP` |
-
+| Parameter | Description | Default | Required |
+|---------------------------|---------------------------|---------------------------|---------------------------|
+| `global.image.registry`   | Global Container image registry | `registry.connect.redhat.com/cloudhedge`       |  No |
+| `global.image.tag` | Global Container image tag | `ch-rel-1.3.3`  |  No |
+| `global.image.imagePullSecrets` | Global Container registry secret names as an array | `[]` (does not add image pull secrets to deployed pods) |  No |
+| `global.image.username` | All `CloudHedge` component images are available in private repository. One can give username and password of the registry to pull the images. This helm chart creates a docker secret for you. Set value = docker registry username | `nil`  |  No |
+| `global.image.password` | All `CloudHedge` component images are available in private repository. One can give username and password of the registry to pull the images. This helm chart creates a docker secret for you. Set value = docker registry password | `nil`  |  No |
+| `global.webappExposeType` | How to expose the webapp? Possible values are: LoadBalancer, ClusterIP and NodePort  | `LoadBalancer` |  No |
+| `global.webappProtocol` | How Webapp is exposed | `HTTP` |  No |
+| `global.jwtSecret` | JWT secret value, give a random string. this string is used to encrypt JWT token | `theJWTSuperSecretValue`  |  No |
+| `global.encryptSecret` | random string. this sting is used to encrypt sensitive data in DB | `theEncryptSuperSecretValue` |  No |
+| `global.commonLabels` | Labels need to attach with every deployed object | `{}` |  No |
+| `global.commonAnnotations` | Annotations need to attach with every deployed object | `{}` |  No |
 
 ## Common parameters
 
-| Parameter            | Description                                                          | Default                        |
-|----------------------|----------------------------------------------------------------------|--------------------------------|
-| `nameOverride`       | String to partially override                                         |                                |
-| `fullnameOverride`   | String to fully override                                             |                                |
-| `elkHost`       | `Cloudhedge Enterprise` can push the logs to elk. Give full qualified and reachable elk URL | `""`  |
-| `appHost`       | exposed URL of the webapp. This URL should be reachable from discover box and build box | `""`  |
+| Parameter | Description | Default | Required |
+|---------------------------|---------------------------|---------------------------|---------------------------|
+| `nameOverride`       | String to partially override | `""` | No |
+| `fullnameOverride`   | String to fully override | `""` | No |
+| `elkHost`       | `Cloudhedge Enterprise` can push the logs to elk. Give full qualified and reachable elk URL | `""`  | No |
+| `appHost`       | exposed URL of the webapp. This URL should be reachable from discover box and build box | `""`  | No |
 
 ---
 
