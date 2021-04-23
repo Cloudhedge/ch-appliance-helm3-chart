@@ -10,7 +10,7 @@ db:
   dbPassword: "<placeholder>" # DB password, required
   dbUrl: "<placeholder>" # DB URL with port, required
   dbName: "<placeholder>" # Database name, required
-  dbProto: "<placeholder>" # DB protocol, Optional, default mongodb
+  # dbProto: "<placeholder>" # DB protocol, Optional, default mongodb
 
 # Global params
 global: 

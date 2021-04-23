@@ -16,44 +16,80 @@
       "properties": {
         "dbUser": {
           "type": "string",
-          "not": {"enum":["<placeholder>",""]}
+          "not": {
+            "enum": [
+              "<placeholder>",
+              ""
+            ]
+          }
         },
         "dbPassword": {
           "type": "string",
-          "not": {"enum":["<placeholder>",""]}
+          "not": {
+            "enum": [
+              "<placeholder>",
+              ""
+            ]
+          }
         },
         "dbUrl": {
           "type": "string",
-          "not": {"enum":["<placeholder>",""]}
+          "not": {
+            "enum": [
+              "<placeholder>",
+              ""
+            ]
+          }
         },
         "dbName": {
           "type": "string",
-          "not": {"enum":["<placeholder>",""]}
+          "not": {
+            "enum": [
+              "<placeholder>",
+              ""
+            ]
+          }
         },
         "dbProto": {
-         "type": "string" 
+          "type": "string",
+          "not": {
+            "enum": [
+              "<placeholder>",
+              ""
+            ]
+          }
         }
       }
     },
-    "global":{
-      "type": ["object", "null"],
+    "global": {
+      "type": [
+        "object",
+        "null"
+      ],
       "properties": {
         "pvcName": {
           "type": "string"
         },
         "jwtSecret": {
           "type": "string"
-        }, 
+        },
         "encryptSecret": {
           "type": "string"
         },
         "webappExposeType": {
           "type": "string",
-          "enum": ["LoadBalancer", "NodePort", "ClusterIP"]
+          "enum": [
+            "LoadBalancer",
+            "NodePort",
+            "ClusterIP"
+          ]
         },
         "webappProtocol": {
           "type": "string",
-          "enum": ["HTTP","HTTPS"]
+          "enum": [
+            "HTTP",
+            "HTTPS"
+          ]
         },
         "commonLabels": {
           "type": "object"
@@ -64,7 +100,7 @@
         "image": {
           "type": "object",
           "properties": {
-            "registry":{
+            "registry": {
               "type": "string"
             },
             "tag": {
@@ -83,11 +119,21 @@
             },
             "username": {
               "type": "string",
-              "not": {"enum":["<placeholder>",""]}
+              "not": {
+                "enum": [
+                  "<placeholder>",
+                  ""
+                ]
+              }
             },
             "password": {
               "type": "string",
-              "not": {"enum":["<placeholder>",""]}
+              "not": {
+                "enum": [
+                  "<placeholder>",
+                  ""
+                ]
+              }
             }
           }
         }
