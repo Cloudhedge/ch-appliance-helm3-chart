@@ -1,7 +1,7 @@
 apiVersion: v2
 name: ch-appliance-helmchart
 version: 1.4.1
-description: Cloudhedge Helm chart for Appliance
+description: Cloudhedge Appliance Helm chart
 keywords:
   - cloudhedge
   - chart

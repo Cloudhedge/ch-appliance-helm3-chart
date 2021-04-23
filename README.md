@@ -65,24 +65,54 @@ The following tables lists the configurable parameters of the `CloudHedge Enterp
 
 ---
 
-Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
+# Install helm chart 
+## Adding the Helm Repository
+This step is required if you’re installing the chart via the helm repository.
+```
+helm repo add cloudhedge https://cloudhedge.github.io/ch-appliance-helm3-chart/
+helm update 
+```
+Verify that helm repository gets added by running the command.
 
-```bash
-$ helm install my-release \
-  --set imagePullPolicy=Always \
-    .
+```
+helm repo list 
 ```
 
-The above command sets the `imagePullPolicy` to `Always`.
+List all available version of CloudHedge helm charts by running a command,
+```
+helm search repo cloudhedge
+```
+This command output should show all available versions of CloudHedge helm charts 
+
+## Setup CloudHedge Appliance 
+
+### Passing params via command line. 
+
+Specify parameter using the `--set key=value,key=value` argument to `helm install` command For example,
+
+```bash
+$ helm install ch-appliance \
+  --set db.dbUser=<placeholder> \
+  --set db.dbPassword=<placeholder> \
+  --set db.dbUrl=<placeholder> \
+  --set db.dbName=<placeholder> \
+  --set db.dbProto=<placeholder> \
+  --set global.image.username=<placeholder> \
+  --set global.image.password=<placeholder> \
+  --set global.webappProtocol=HTTPS \
+  cloudhedge/ch-appliance-helmchart
+
+```
+Make sure to use correct db credentials by replacing `<placeholder>` with correct values
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```bash
-$ helm install my-release -f values.yaml .
+$ helm install ch-appliance -f values.yaml cloudhedge/ch-appliance-helmchart
 ```
 
-> **Tip**: You can use the default [values.yaml](values.yaml)
+You can use the default [values.yaml](./values.yaml). The file has enough pointers for each possible parameter. Update this file and run mansioned commnad 
 
 ## Getting support
 
-`Cloudhedge Enterprise` chart is actively managed by `CloudHedge Enggineers`. If you encounter any issues, reach out to us at [hello@cloudhedge.io](mailto:hello@cloudhedge.io). 
+`CloudHedge Enterprise` chart is actively managed by `CloudHedge Enggineers`. If you encounter any issues, reach out to us at [hello@cloudhedge.io](mailto:hello@cloudhedge.io). 
