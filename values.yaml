@@ -17,7 +17,7 @@ global:
 #   pvcName: "" # Persistent volume claim name, make sure your PVC is available in a given namespace, Optional
 #   jwtSecret: "theEncryptSuperSecretValue" # JWT secret, Optional, default theJWTSuperSecretValue
 #   encryptSecret: theEncryptSuperSecretValue # Encrypt secret, Optional, default theEncryptSuperSecretValue
-#   webappExposeType: LoadBalancer # webapp expose type, Optional, default LoadBalancer, allowed values are LoadBalancer, NodePort and ClusterIP
+  webappExposeType: NodePort # webapp expose type, Optional, default LoadBalancer, allowed values are LoadBalancer, NodePort and ClusterIP
   webappProtocol: HTTPS # Webapp Protocol, optional, default HTTP, allowed values are HTTP and HTTPS
 
 #   # Add labels to all the deployed resources, Optional
@@ -70,3 +70,5 @@ global:
 #     - port: 443
 #       targetPort: 8443
 #       name: https
+
+clusterDomain: cluster.local

@@ -1,0 +1,53 @@
+
+    ******************************************************************************
+    ** Please be patient while the CloudHedge Appliance chart is being deployed **
+    ******************************************************************************
+    
+    CloudHedge Appliance can be accessed through the following DNS name from within your cluster:
+
+        {{ .Release.Name }}-webapp.{{ .Release.Namespace }}.svc.{{ .Values.clusterDomain }} (port {{ eq (.Values.global.webappProtocol | default "HTTP") "HTTP" | ternary 80 443 }})
+
+    To access CloudHedge Appliance from outside the cluster, follow the steps below:
+        NOTE: It may take a few minutes for the all pods become up and running
+        Watch the status of pods with: 'kubectl get po --namespace {{ .Release.Namespace }} -w'
+
+
+    Get the CloudHedge Appliance URL by running these commands:
+
+    {{- if eq (.Values.global.webappExposeType | default "LoadBalancer") "LoadBalancer" }}
+
+        NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+        Watch the status with: 'kubectl get svc --namespace {{ .Release.Namespace }} -w {{ .Release.Name }}-webapp'
+
+        export SERVICE_PORT=$(kubectl get svc --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].port}" {{ .Release.Name }}-webapp)
+        export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }}   -o jsonpath='{.status.loadBalancer.ingress[0].ip}' {{ .Release.Name }}-webapp)
+        {{- if eq (.Values.global.webappProtocol | default "HTTP") "HTTPS" }}
+        echo "https://${SERVICE_IP}:${SERVICE_PORT}"
+        {{- else }}
+        echo "http://${SERVICE_IP}:${SERVICE_PORT}"
+        {{- end }}
+
+    {{- else if eq (.Values.global.webappExposeType | default "LoadBalancer") "ClusterIP" }}
+
+        export SERVICE_PORT=$(kubectl get svc --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].port}" {{ .Release.Name }}-webapp)
+        kubectl port-forward --namespace {{ .Release.Namespace }} svc/{{ .Release.Name }}-webapp ${SERVICE_PORT}:${SERVICE_PORT} &
+
+        {{- if eq (.Values.global.webappProtocol | default "HTTP") "HTTPS" }}
+        echo "https://127.0.0.1:${SERVICE_PORT}"
+        {{- else }}
+        echo "http://127.0.0.1:${SERVICE_PORT}"
+        {{- end }}
+        
+
+    {{- else if eq (.Values.global.webappExposeType | default "LoadBalancer") "NodePort" }}
+
+        export NODE_PORT=$(kubectl get svc --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" {{ .Release.Name }}-webapp)
+        export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
+        
+        {{- if eq (.Values.global.webappProtocol | default "HTTP") "HTTPS" }}
+        echo "https://${NODE_IP}:${NODE_PORT}"
+        {{- else }}
+        echo "http://${NODE_IP}:${NODE_PORT}"
+        {{- end }}
+
+    {{- end }}
