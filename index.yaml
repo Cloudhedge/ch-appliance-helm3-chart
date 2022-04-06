@@ -3,7 +3,7 @@ entries:
   ch-appliance-helmchart:
   - apiVersion: v2
     appVersion: 1.4.1
-    created: "2021-04-23T17:48:07.591828+05:30"
+    created: "2022-04-06T12:53:38.784492+05:30"
     dependencies:
     - alias: webapp
       name: ch-chart-template
@@ -115,4 +115,4 @@ entries:
     urls:
     - ch-appliance-helmchart-1.4.1.tgz
     version: 1.4.1
-generated: "2021-04-23T17:48:07.588914+05:30"
+generated: "2022-04-06T12:53:38.767191+05:30"
