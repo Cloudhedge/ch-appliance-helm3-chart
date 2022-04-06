@@ -8,23 +8,23 @@
       
       "properties": {
         "dbUser": {
-          "type": "string",
+          "type": "string"
           
         },
         "dbPassword": {
-          "type": "string",
+          "type": "string"
           
         },
         "dbUrl": {
-          "type": "string",
+          "type": "string"
           
         },
         "dbName": {
-          "type": "string",
+          "type": "string"
           
         },
         "dbProto": {
-          "type": "string",
+          "type": "string"
           
         }
       }
