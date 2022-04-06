@@ -1,63 +1,31 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
-  "required": [
-    "db"
-  ],
+  
   "properties": {
     "db": {
       "type": "object",
-      "required": [
-        "dbUser",
-        "dbPassword",
-        "dbUrl",
-        "dbName"
-      ],
+      
       "properties": {
         "dbUser": {
           "type": "string",
-          "not": {
-            "enum": [
-              "<placeholder>",
-              ""
-            ]
-          }
+          
         },
         "dbPassword": {
           "type": "string",
-          "not": {
-            "enum": [
-              "<placeholder>",
-              ""
-            ]
-          }
+          
         },
         "dbUrl": {
           "type": "string",
-          "not": {
-            "enum": [
-              "<placeholder>",
-              ""
-            ]
-          }
+          
         },
         "dbName": {
           "type": "string",
-          "not": {
-            "enum": [
-              "<placeholder>",
-              ""
-            ]
-          }
+          
         },
         "dbProto": {
           "type": "string",
-          "not": {
-            "enum": [
-              "<placeholder>",
-              ""
-            ]
-          }
+          
         }
       }
     },
@@ -77,19 +45,11 @@
           "type": "string"
         },
         "webappExposeType": {
-          "type": "string",
-          "enum": [
-            "LoadBalancer",
-            "NodePort",
-            "ClusterIP"
-          ]
+          "type": "string"
+          
         },
         "webappProtocol": {
-          "type": "string",
-          "enum": [
-            "HTTP",
-            "HTTPS"
-          ]
+          "type": "string"
         },
         "commonLabels": {
           "type": "object"
@@ -118,22 +78,12 @@
               }
             },
             "username": {
-              "type": "string",
-              "not": {
-                "enum": [
-                  "<placeholder>",
-                  ""
-                ]
-              }
+              "type": "string"
+              
             },
             "password": {
-              "type": "string",
-              "not": {
-                "enum": [
-                  "<placeholder>",
-                  ""
-                ]
-              }
+              "type": "string"
+              
             }
           }
         }
