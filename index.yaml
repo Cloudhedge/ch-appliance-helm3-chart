@@ -3,110 +3,110 @@ entries:
   ch-appliance-helmchart:
   - apiVersion: v2
     appVersion: 1.4.6
-    created: "2022-04-19T12:08:23.93684+05:30"
+    created: "2022-04-19T12:58:54.708725+05:30"
     dependencies:
     - alias: webapp
       name: ch-chart-template
       repository: ""
-      version: dev-463
+      version: 1.4.6
     - alias: auth-gateway-service
       name: ch-chart-template
       repository: ""
-      version: dev-1068
+      version: 1.4.6
     - alias: core-engine
       name: ch-chart-template
       repository: ""
-      version: dev-243
+      version: 1.4.6
     - alias: cloud-infra-service
       name: ch-chart-template
       repository: ""
-      version: dev-80
+      version: 1.4.6
     - alias: infra-usage-analysis-engine
       name: ch-chart-template
       repository: ""
-      version: dev-80
+      version: 1.4.6
     - alias: notification-service
       name: ch-chart-template
       repository: ""
-      version: dev-94
+      version: 1.4.6
     - alias: repository-service
       name: ch-chart-template
       repository: ""
-      version: dev-82
+      version: 1.4.6
     - alias: vault-service
       name: ch-chart-template
       repository: ""
-      version: dev-93
+      version: 1.4.6
     - alias: activity-service
       name: ch-chart-template
       repository: ""
-      version: dev-87
+      version: 1.4.6
     - alias: k8s-helm-service
       name: ch-chart-template
       repository: ""
-      version: dev-96
+      version: 1.4.6
     - alias: discover-service-linux
       name: ch-chart-template
       repository: ""
-      version: dev-327
+      version: 1.4.6
     - alias: discover-service-windows
       name: ch-chart-template
       repository: ""
-      version: dev-208
+      version: 1.4.6
     - alias: distribute-service
       name: ch-chart-template
       repository: ""
-      version: dev-89
+      version: 1.4.6
     - alias: openshift-service
       name: ch-chart-template
       repository: ""
-      version: dev-93
+      version: 1.4.6
     - alias: report-service
       name: ch-chart-template
       repository: ""
-      version: dev-168
+      version: 1.4.6
     - alias: ci-service
       name: ch-chart-template
       repository: ""
-      version: dev-79
+      version: 1.4.6
     - alias: cloud-lease-service
       name: ch-chart-template
       repository: ""
-      version: dev-78
+      version: 1.4.6
     - alias: analytics-service
       name: ch-chart-template
       repository: ""
-      version: dev-82
+      version: 1.4.6
     - alias: gc-k8s-service
       name: ch-chart-template
       repository: ""
-      version: dev-87
+      version: 1.4.6
     - alias: aws-k8s-service
       name: ch-chart-template
       repository: ""
-      version: dev-100
+      version: 1.4.6
     - alias: logging-agent
       name: ch-chart-template
       repository: ""
-      version: dev-13
+      version: 1.4.6
     - alias: transform-service-linux
       name: ch-chart-template
       repository: ""
-      version: dev-299
+      version: 1.4.6
     - alias: transform-service-windows
       name: ch-chart-template
       repository: ""
-      version: dev-179
+      version: 1.4.6
     - alias: logging-service
       name: ch-chart-template
       repository: ""
-      version: dev-85
+      version: 1.4.6
     - alias: cruize-service
       name: ch-chart-template
       repository: ""
-      version: dev-94
+      version: 1.4.6
     description: Cloudhedge Appliance Helm chart
-    digest: 898165e3d08d34102730299b1bd65d82b98b018dc5537706f18eeb051c44369f
+    digest: 9733e079c0b41a34a10f527813c164c0123a4135d7fce0eef4fa2fb3db9bd857
     home: https://cloudhedge.io
     keywords:
     - cloudhedge
@@ -121,7 +121,7 @@ entries:
     version: 1.4.6
   - apiVersion: v2
     appVersion: 1.4.1
-    created: "2022-04-19T12:08:23.934551+05:30"
+    created: "2022-04-19T12:58:54.696765+05:30"
     dependencies:
     - alias: webapp
       name: ch-chart-template
@@ -233,4 +233,4 @@ entries:
     urls:
     - tars/ch-appliance-helmchart-1.4.1.tgz
     version: 1.4.1
-generated: "2022-04-19T12:08:23.93079+05:30"
+generated: "2022-04-19T12:58:54.686598+05:30"
