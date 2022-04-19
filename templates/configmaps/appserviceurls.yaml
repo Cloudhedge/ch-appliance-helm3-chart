@@ -74,6 +74,6 @@ data:
   {{- $_ := set . "tempsvc" "ch-user-guide" }}
   CH_USER_GUIDE_URL: {{ include "cloudhedge.services.url" . }}
   CRUIZE_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
-  {{- $_ := set . "tempsvc" "license-service" }}
-  LICENSE_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
   {{- $_ := set . "tempsvc" "cruize-service" }}
+  LICENSE_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "license-service" }}
