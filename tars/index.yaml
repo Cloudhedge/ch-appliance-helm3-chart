@@ -3,7 +3,7 @@ entries:
   ch-appliance-helmchart:
   - apiVersion: v2
     appVersion: 1.4.6
-    created: "2022-04-19T12:08:23.93684+05:30"
+    created: "2022-04-19T12:06:15.133452+05:30"
     dependencies:
     - alias: webapp
       name: ch-chart-template
@@ -117,11 +117,11 @@ entries:
       name: Cloudhedge Engineering team
     name: ch-appliance-helmchart
     urls:
-    - tars/ch-appliance-helmchart-1.4.6.tgz
+    - ch-appliance-helmchart-1.4.6.tgz
     version: 1.4.6
   - apiVersion: v2
     appVersion: 1.4.1
-    created: "2022-04-19T12:08:23.934551+05:30"
+    created: "2022-04-19T12:06:15.131298+05:30"
     dependencies:
     - alias: webapp
       name: ch-chart-template
@@ -231,6 +231,6 @@ entries:
       name: Cloudhedge Engineering team
     name: ch-appliance-helmchart
     urls:
-    - tars/ch-appliance-helmchart-1.4.1.tgz
+    - ch-appliance-helmchart-1.4.1.tgz
     version: 1.4.1
-generated: "2022-04-19T12:08:23.93079+05:30"
+generated: "2022-04-19T12:06:15.124644+05:30"
