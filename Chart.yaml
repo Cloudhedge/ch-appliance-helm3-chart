@@ -90,6 +90,9 @@ dependencies:
 - name: ch-chart-template
   version: 1.4.6
   alias: license-service
+- name: ch-chart-template
+  version: 1.4.6
+  alias: ch-user-guide
 # - name: ch-chart-template
 #   version: 1.4.1
 #   alias: discover-service-aix
