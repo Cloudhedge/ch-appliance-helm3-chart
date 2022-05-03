@@ -123,6 +123,8 @@ Create chart name and version as used by the chart label.
 {{- $containerPort =  3011 -}}
 {{- else if eq .component "cruize-service" -}}
 {{- $containerPort =  3012 -}}
+{{- else if eq .component "ch-user-guide" -}}
+{{- $containerPort =  8001 -}}
 {{- end -}}
 {{- printf "%d" $containerPort }}
 {{- end -}}
