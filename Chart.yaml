@@ -1,6 +1,6 @@
 apiVersion: v2
 name: ch-appliance-helmchart
-version: 1.5.0-84
+version: 1.5
 description: Cloudhedge Appliance Helm chart
 keywords:
   - cloudhedge
@@ -10,88 +10,88 @@ home: https://cloudhedge.io
 maintainers:
   - name: Cloudhedge Engineering team
     email: engg@cloudhedge.io
-appVersion: 1.5.0-84
+appVersion: 1.5
 dependencies:
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: webapp
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: auth-gateway-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: core-engine
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: cloud-infra-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: infra-usage-analysis-engine
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: notification-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: repository-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: vault-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: activity-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: k8s-helm-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: discover-service-linux
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: discover-service-windows  
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: distribute-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: openshift-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: report-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: ci-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: cloud-lease-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: analytics-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: gc-k8s-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: aws-k8s-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: logging-agent
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: transform-service-linux
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: transform-service-windows
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: logging-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: cruize-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: license-service
 - name: ch-chart-template
-  version: 1.5.0-84
+  version: 1.5
   alias: ch-user-guide
 # - name: ch-chart-template
 #   version: 1.4.1
