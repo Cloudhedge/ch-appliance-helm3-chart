@@ -1,6 +1,6 @@
 apiVersion: v2
 name: ch-appliance-helmchart
-version: 1.5.0
+version: "1.5.0-84"
 description: Cloudhedge Appliance Helm chart
 keywords:
   - cloudhedge
@@ -23,16 +23,7 @@ dependencies:
   alias: core-engine
 - name: ch-chart-template
   version: 1.5.0
-  alias: cloud-infra-service
-- name: ch-chart-template
-  version: 1.5.0
-  alias: infra-usage-analysis-engine
-- name: ch-chart-template
-  version: 1.5.0
   alias: notification-service
-- name: ch-chart-template
-  version: 1.5.0
-  alias: repository-service
 - name: ch-chart-template
   version: 1.5.0
   alias: vault-service
@@ -41,37 +32,13 @@ dependencies:
   alias: activity-service
 - name: ch-chart-template
   version: 1.5.0
-  alias: k8s-helm-service
-- name: ch-chart-template
-  version: 1.5.0
   alias: discover-service-linux
 - name: ch-chart-template
   version: 1.5.0
   alias: discover-service-windows  
 - name: ch-chart-template
   version: 1.5.0
-  alias: distribute-service
-- name: ch-chart-template
-  version: 1.5.0
-  alias: openshift-service
-- name: ch-chart-template
-  version: 1.5.0
   alias: report-service
-- name: ch-chart-template
-  version: 1.5.0
-  alias: ci-service
-- name: ch-chart-template
-  version: 1.5.0
-  alias: cloud-lease-service
-- name: ch-chart-template
-  version: 1.5.0
-  alias: analytics-service
-- name: ch-chart-template
-  version: 1.5.0
-  alias: gc-k8s-service
-- name: ch-chart-template
-  version: 1.5.0
-  alias: aws-k8s-service
 - name: ch-chart-template
   version: 1.5.0
   alias: logging-agent
