@@ -83,12 +83,12 @@ webapp:
 core-engine:
   image:
     repository: core-engine
-    tag: ch-rel-1.5-11
+    tag: ch-rel-1.5-12
 
 auth-gateway-service:
   image:
     repository: auth-gateway-service
-    tag: ch-rel-1.5-85
+    tag: ch-rel-1.5-91
 
 # cloud-infra-service:
 #   image:
@@ -123,22 +123,27 @@ activity-service:
 discover-service-linux:
   image:
     repository: discover-service-linux
-    tag: ch-rel-1.5-24
+    tag: ch-rel-1.5-25
+
+discover-service-aix:
+  image:
+    repository: discover-service-aix
+    tag: ch-rel-1.5-11
 
 discover-service-windows:
   image:
     repository:  discover-service-windows
-    tag: ch-rel-1.5-12
+    tag: ch-rel-1.5-15
 
 transform-service-linux:
   image:
     repository: transform-service-linux
-    tag: ch-rel-1.5-44
+    tag: ch-rel-1.5-46
 
 transform-service-windows:
   image:
     repository: transform-service-windows
-    tag: ch-rel-1.5-21
+    tag: ch-rel-1.5-22
 
 report-service:
   image:
