@@ -1,14 +1,15 @@
 apiVersion: v2
-appVersion: 1.5.0
-description: Helm chart template for Cloudhedge apps
+appVersion: "1.5-90"
+description: Helm chart template for OmniDeq
 keywords:
   - cloudhedge
+  - omnideq
   - helm
   - chart
   - template
 home: https://cloudhedge.io
 maintainers:
-  - name: Cloudhedge Engg
-    email: engg@cloudhedge.io
-name: ch-chart-template
-version: 1.5.0
+  - name: Cloudhedge OmniDeq team
+    email: support@cloudhedge.io
+name: omnideq-chart-template
+version: "1.5.90"
