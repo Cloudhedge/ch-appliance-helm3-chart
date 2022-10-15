@@ -123,7 +123,7 @@ discover-service-linux:
 discover-service-aix:
   image:
     repository: discover-service-aix
-    tag: ch-rel-1.5.1-5
+    tag: ch-rel-1.5.1-5-1
 
 discover-service-windows:
   image:
@@ -153,7 +153,7 @@ cruize-service:
 license-service:
   image:
     repository: proserv/proserv/proserv
-    tag: ch-rel-1.5.1-2
+    tag: license-service-ch-rel-1.4.6-3
 
 ch-user-guide:
   image:
