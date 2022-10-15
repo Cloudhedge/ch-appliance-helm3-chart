@@ -71,10 +71,8 @@ Create chart name and version as used by the chart label.
 	{{- else }}
     {{- $containerPort =  8080 -}}
     {{- end }}
-{{- else if eq .component "logging-agent" -}}
-{{- $containerPort =  8888 -}}
-{{- else if eq .component "logging-service" -}}
-{{- $containerPort =  4015 -}}
+{{- else if eq .component "aws-lift-shift" -}}
+{{- $containerPort =  4005 -}}
 {{- else if eq .component "auth-gateway-service" -}}
 {{- $containerPort =  3000 -}}
 {{- else if eq .component "core-engine" -}}
