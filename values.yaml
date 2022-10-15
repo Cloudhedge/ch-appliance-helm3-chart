@@ -78,99 +78,84 @@ clusterDomain: cluster.local
 webapp:
   image:
     repository: webapp
-    tag: ch-rel-1.5-41
+    tag: ch-rel-1.5.1-1
+
+aws-lift-shift:
+  image:
+    repository: aws-lift-shift
+    tag: ch-rel-1.5.1-1
 
 core-engine:
   image:
     repository: core-engine
-    tag: ch-rel-1.5-12
+    tag: ch-rel-1.5.1-1
 
 auth-gateway-service:
   image:
     repository: auth-gateway-service
-    tag: ch-rel-1.5-91
+    tag: ch-rel-1.5.1-5
 
 # cloud-infra-service:
 #   image:
 #     repository: cloud-infra-service
 #     tag: dev-83
 
-# infra-usage-analysis-engine:
-#   image:
-#     repository: infra-usage-analysis-engine
-#     tag: dev-83
-
 notification-service:
   image:
     repository: notification-service
-    tag: ch-rel-1.5-8
-
-# repository-service:
-#   image:
-#     repository: repository-service
-#     tag: dev-85
+    tag: ch-rel-1.5.1-1
 
 vault-service:
   image:
     repository: vault-service
-    tag: ch-rel-1.5-8
+    tag: ch-rel-1.5.1-1
 
 activity-service:
   image:
     repository: activity-service
-    tag: ch-rel-1.5-8
+    tag: ch-rel-1.5.1-1
 
 discover-service-linux:
   image:
     repository: discover-service-linux
-    tag: ch-rel-1.5-25
+    tag: ch-rel-1.5.1-1
 
 discover-service-aix:
   image:
     repository: discover-service-aix
-    tag: ch-rel-1.5-11
+    tag: ch-rel-1.5.1-5
 
 discover-service-windows:
   image:
     repository:  discover-service-windows
-    tag: ch-rel-1.5-15
+    tag: ch-rel-1.5.1-1
 
 transform-service-linux:
   image:
     repository: transform-service-linux
-    tag: ch-rel-1.5-46
+    tag: ch-rel-1.5.1-2
 
 transform-service-windows:
   image:
     repository: transform-service-windows
-    tag: ch-rel-1.5-22
+    tag: ch-rel-1.5.1-2
 
 report-service:
   image:
     repository: report-service
-    tag: ch-rel-1.5-13
-
-logging-agent:
-  image:
-    repository: logging-agent
-    tag: ch-rel-1.5-0
-
-logging-service:
-  image:
-    repository: logging-service
-    tag: ch-rel-1.5-8
+    tag: ch-rel-1.5.1-2
 
 cruize-service:
   image:
     repository: cruize-service
-    tag: ch-rel-1.5-42
+    tag: ch-rel-1.5.1-1
 
 license-service:
   image:
     repository: proserv/proserv/proserv
-    tag: license-service-ch-rel-1.4.6-3
+    tag: ch-rel-1.5.1-2
 
 ch-user-guide:
   image:
     repository: ch-user-guide
-    tag: ch-rel-1.5-22
+    tag: ch-rel-1.5.1-1
