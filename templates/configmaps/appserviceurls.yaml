@@ -77,3 +77,5 @@ data:
   CRUIZE_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
   {{- $_ := set . "tempsvc" "license-service" }}
   LICENSE_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
+  {{- $_ := set . "tempsvc" "aws-lift-shift" }}
+  AWS_LIFT_SHIFT_SERVICE_URL: {{ include "cloudhedge.services.url" . }}
