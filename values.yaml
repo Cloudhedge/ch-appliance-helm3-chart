@@ -123,7 +123,7 @@ discover-service-linux:
 discover-service-aix:
   image:
     repository: discover-service-aix
-    tag: ch-rel-1.5.1-5-1
+    tag: ch-rel-1.5.1-1
 
 discover-service-windows:
   image:
