@@ -39,123 +39,84 @@ global:
 #     username: <placeholder>
 #     password: <placeholder>
 
-# CloudHedge Appliance has 25+ micro-services, here we can override default params in each component, make sure to use correct component name, all are optional values
-# webapp:
-#   nameOverride: webapp
-#   container:
-#     ports:
-#       - containerPort: 8443
-#         name: https
-#         targetPort: 8443
-#     livenessProbe:
-#       initialDelaySeconds: 10
-#       httpGet:
-#         path: /
-#         port: 8443
-#         scheme: HTTPS
-#     readinessProbe:
-#       initialDelaySeconds: 10
-#       httpGet:
-#         path: /
-#         port: 8443
-#         scheme: HTTPS
-#   image:
-#     repository: webapp
-#     tag: ch-rel-1.3.3
-#     pullPolicy: IfNotPresent
-#   service:
-#     type: LoadBalancer
-#     sessionAffinity: ClientIP
-#     ports: 
-#     - port: 443
-#       targetPort: 8443
-#       name: https
-
 clusterDomain: cluster.local
-
-# New section
 
 webapp:
   image:
     repository: webapp
-    tag: ch-rel-1.5.1-1
+    tag: ch-rel-1.5.1-1 #tag-to-replace-webapp
 
 aws-lift-shift:
   image:
     repository: aws-lift-shift
-    tag: ch-rel-1.5.1-1
+    tag: ch-rel-1.5.1-1 #tag-to-replace-aws-lift-shift
 
 core-engine:
   image:
     repository: core-engine
-    tag: ch-rel-1.5.1-1
+    tag: ch-rel-1.5.1-1 #tag-to-replace-core-engine
 
 auth-gateway-service:
   image:
     repository: auth-gateway-service
-    tag: ch-rel-1.5.1-5
+    tag: ch-rel-1.5.1-5 #tag-to-replace-auth-gateway-service
 
-# cloud-infra-service:
-#   image:
-#     repository: cloud-infra-service
-#     tag: dev-83
+cloud-infra-service:
+  image:
+    repository: cloud-infra-service
+    tag: dev-83 #tag-to-replace-cloud-infra-service
 
 notification-service:
   image:
     repository: notification-service
-    tag: ch-rel-1.5.1-1
+    tag: ch-rel-1.5.1-1 #tag-to-replace-notification-service
 
 vault-service:
   image:
     repository: vault-service
-    tag: ch-rel-1.5.1-1
+    tag: ch-rel-1.5.1-1 #tag-to-replace-vault-service
 
 activity-service:
   image:
     repository: activity-service
-    tag: ch-rel-1.5.1-1
+    tag: ch-rel-1.5.1-1 #tag-to-replace-discover-service-linux
 
 discover-service-linux:
   image:
     repository: discover-service-linux
-    tag: ch-rel-1.5.1-1
+    tag: ch-rel-1.5.1-1 #tag-to-replace-
 
 discover-service-aix:
   image:
     repository: discover-service-aix
-    tag: ch-rel-1.5.1-1
+    tag: ch-rel-1.5.1-1 #tag-to-replace-discover-service-aix
 
 discover-service-windows:
   image:
     repository:  discover-service-windows
-    tag: ch-rel-1.5.1-1
+    tag: ch-rel-1.5.1-1 #tag-to-replace-discover-service-windows
 
 transform-service-linux:
   image:
     repository: transform-service-linux
-    tag: ch-rel-1.5.1-2
+    tag: ch-rel-1.5.1-2 #tag-to-replace-transform-service-linux
 
 transform-service-windows:
   image:
     repository: transform-service-windows
-    tag: ch-rel-1.5.1-2
+    tag: ch-rel-1.5.1-2 #tag-to-replace-transform-service-windows
 
 report-service:
   image:
     repository: report-service
-    tag: ch-rel-1.5.1-2
+    tag: ch-rel-1.5.1-2 #tag-to-replace-report-service
 
 cruize-service:
   image:
     repository: cruize-service
-    tag: ch-rel-1.5.1-1
-
-license-service:
-  image:
-    repository: proserv/proserv/proserv
-    tag: license-service-ch-rel-1.4.6-3
+    tag: ch-rel-1.5.1-1 #tag-to-replace-cruize-service
 
 ch-user-guide:
   image:
     repository: ch-user-guide
-    tag: ch-rel-1.5.1-1
+    tag: ch-rel-1.5.1-1 #tag-to-replace-ch-user-guide
