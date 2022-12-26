@@ -79,12 +79,12 @@ vault-service:
 activity-service:
   image:
     repository: activity-service
-    tag: ch-rel-1.5.1-1 #tag-to-replace-discover-service-linux
+    tag: ch-rel-1.5.1-1 #tag-to-replace-activity-service
 
 discover-service-linux:
   image:
     repository: discover-service-linux
-    tag: ch-rel-1.5.1-1 #tag-to-replace-
+    tag: ch-rel-1.5.1-1 #tag-to-replace-discover-service-linux
 
 discover-service-aix:
   image:
