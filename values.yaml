@@ -44,79 +44,79 @@ clusterDomain: cluster.local
 webapp:
   image:
     repository: webapp
-    tag: ch-rel-1.5.1-1 #tag-to-replace-webapp
+    tag: ch-rel-1.5.2-2 
 
 aws-lift-shift:
   image:
     repository: aws-lift-shift
-    tag: ch-rel-1.5.1-1 #tag-to-replace-aws-lift-shift
+    tag: ch-rel-1.5.2-1 
 
 core-engine:
   image:
     repository: core-engine
-    tag: ch-rel-1.5.1-1 #tag-to-replace-core-engine
+    tag: ch-rel-1.5.2-2 
 
 auth-gateway-service:
   image:
     repository: auth-gateway-service
-    tag: ch-rel-1.5.1-5 #tag-to-replace-auth-gateway-service
+    tag: ch-rel-1.5.2-9 
 
 cloud-infra-service:
   image:
     repository: cloud-infra-service
-    tag: dev-83 #tag-to-replace-cloud-infra-service
+    tag: ch-rel-1.5.2-1 
 
 notification-service:
   image:
     repository: notification-service
-    tag: ch-rel-1.5.1-1 #tag-to-replace-notification-service
+    tag: ch-rel-1.5.2-1 
 
 vault-service:
   image:
     repository: vault-service
-    tag: ch-rel-1.5.1-1 #tag-to-replace-vault-service
+    tag: ch-rel-1.5.2-1 
 
 activity-service:
   image:
     repository: activity-service
-    tag: ch-rel-1.5.1-1 #tag-to-replace-activity-service
+    tag: ch-rel-1.5.2-1 
 
 discover-service-linux:
   image:
     repository: discover-service-linux
-    tag: ch-rel-1.5.1-1 #tag-to-replace-discover-service-linux
+    tag: ch-rel-1.5.2-5 
 
 discover-service-aix:
   image:
     repository: discover-service-aix
-    tag: ch-rel-1.5.1-1 #tag-to-replace-discover-service-aix
+    tag: ch-rel-1.5.2-1 
 
 discover-service-windows:
   image:
     repository:  discover-service-windows
-    tag: ch-rel-1.5.1-1 #tag-to-replace-discover-service-windows
+    tag: ch-rel-1.5.2-3 
 
 transform-service-linux:
   image:
     repository: transform-service-linux
-    tag: ch-rel-1.5.1-2 #tag-to-replace-transform-service-linux
+    tag: ch-rel-1.5.2-3 
 
 transform-service-windows:
   image:
     repository: transform-service-windows
-    tag: ch-rel-1.5.1-2 #tag-to-replace-transform-service-windows
+    tag: ch-rel-1.5.2-1 
 
 report-service:
   image:
     repository: report-service
-    tag: ch-rel-1.5.1-2 #tag-to-replace-report-service
+    tag: ch-rel-1.5.2-1 
 
 cruize-service:
   image:
     repository: cruize-service
-    tag: ch-rel-1.5.1-1 #tag-to-replace-cruize-service
+    tag: ch-rel-1.5.2-2 
 
 ch-user-guide:
   image:
     repository: ch-user-guide
-    tag: ch-rel-1.5.1-1 #tag-to-replace-ch-user-guide
+    tag: ch-rel-1.5.2-3 

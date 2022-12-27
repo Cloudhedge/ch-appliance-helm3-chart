@@ -1,6 +1,6 @@
 apiVersion: v2
 name: omnideq-helmchart
-version: "tag-to-replace"
+version: "1.5.2-9"
 description: OmniDeq Helm chart
 keywords:
   - cloudhedge
@@ -11,53 +11,53 @@ home: https://cloudhedge.io
 maintainers:
   - name: Cloudhedge OmniDeq team
     email: support@cloudhedge.io
-appVersion: "tag-to-replace"
+appVersion: "1.5.2-9"
 dependencies:
 - name: omnideq-chart-template
-  version: "tag-to-replace" 
+  version: "1.5.2-9" 
   alias: aws-lift-shift
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: webapp
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: auth-gateway-service
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: core-engine
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: notification-service
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: vault-service
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: activity-service
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: discover-service-linux
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: discover-service-windows  
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: report-service
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: transform-service-linux
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: transform-service-windows
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: cruize-service
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: license-service
 - name: omnideq-chart-template
-  version: "tag-to-replace"
+  version: "1.5.2-9"
   alias: ch-user-guide
 - name: omnideq-chart-template
-  version:  "tag-to-replace"
+  version:  "1.5.2-9"
   alias: discover-service-aix
