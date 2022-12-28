@@ -1,8 +1,8 @@
 replicaCount: 1
 global:
   pvcName: ""
-  image:
-    registry: odcr.cloudhedge.io/omnideq
+  #image:
+  #  registry: odcr.cloudhedge.io/omnideq
 container:
   # ports:
   #   - containerPort: 80
