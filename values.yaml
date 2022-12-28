@@ -42,81 +42,49 @@ global:
 clusterDomain: cluster.local
 
 webapp:
-  image:
-    repository: webapp
-    tag: ch-rel-1.5.1-1 #tag-to-replace-webapp
+  image: webapp:ch-rel-1.5.1-1 #tag-to-replace-webapp
 
 aws-lift-shift:
-  image:
-    repository: aws-lift-shift
-    tag: ch-rel-1.5.1-1 #tag-to-replace-aws-lift-shift
+  image: aws-lift-shift:ch-rel-1.5.1-1 #tag-to-replace-aws-lift-shift
 
 core-engine:
-  image:
-    repository: core-engine
-    tag: ch-rel-1.5.1-1 #tag-to-replace-core-engine
+  image: core-engine:ch-rel-1.5.1-1 #tag-to-replace-core-engine
 
 auth-gateway-service:
-  image:
-    repository: auth-gateway-service
-    tag: ch-rel-1.5.1-5 #tag-to-replace-auth-gateway-service
+  image: auth-gateway-service:ch-rel-1.5.1-5 #tag-to-replace-auth-gateway-service
 
 cloud-infra-service:
-  image:
-    repository: cloud-infra-service
-    tag: dev-83 #tag-to-replace-cloud-infra-service
+  image: cloud-infra-service:dev-83 #tag-to-replace-cloud-infra-service
 
 notification-service:
-  image:
-    repository: notification-service
-    tag: ch-rel-1.5.1-1 #tag-to-replace-notification-service
+  image: notification-service:ch-rel-1.5.1-1 #tag-to-replace-notification-service
 
 vault-service:
-  image:
-    repository: vault-service
-    tag: ch-rel-1.5.1-1 #tag-to-replace-vault-service
+  image: vault-service:ch-rel-1.5.1-1 #tag-to-replace-vault-service
 
 activity-service:
-  image:
-    repository: activity-service
-    tag: ch-rel-1.5.1-1 #tag-to-replace-activity-service
+  image: activity-service:ch-rel-1.5.1-1 #tag-to-replace-activity-service
 
 discover-service-linux:
-  image:
-    repository: discover-service-linux
-    tag: ch-rel-1.5.1-1 #tag-to-replace-discover-service-linux
+  image: discover-service-linux:ch-rel-1.5.1-1 #tag-to-replace-discover-service-linux
 
 discover-service-aix:
-  image:
-    repository: discover-service-aix
-    tag: ch-rel-1.5.1-1 #tag-to-replace-discover-service-aix
+  image: discover-service-aix:ch-rel-1.5.1-1 #tag-to-replace-discover-service-aix
 
 discover-service-windows:
-  image:
-    repository:  discover-service-windows
-    tag: ch-rel-1.5.1-1 #tag-to-replace-discover-service-windows
+  image: discover-service-windows:ch-rel-1.5.1-1 #tag-to-replace-discover-service-windows
 
 transform-service-linux:
-  image:
-    repository: transform-service-linux
-    tag: ch-rel-1.5.1-2 #tag-to-replace-transform-service-linux
+  image: transform-service-linux:ch-rel-1.5.1-2 #tag-to-replace-transform-service-linux
 
 transform-service-windows:
-  image:
-    repository: transform-service-windows
-    tag: ch-rel-1.5.1-2 #tag-to-replace-transform-service-windows
+  image: transform-service-windows:ch-rel-1.5.1-2 #tag-to-replace-transform-service-windows
 
 report-service:
-  image:
-    repository: report-service
-    tag: ch-rel-1.5.1-2 #tag-to-replace-report-service
+  image: report-service:ch-rel-1.5.1-2 #tag-to-replace-report-service
 
 cruize-service:
-  image:
-    repository: cruize-service
-    tag: ch-rel-1.5.1-1 #tag-to-replace-cruize-service
+  image: cruize-service:ch-rel-1.5.1-1 #tag-to-replace-cruize-service
 
 ch-user-guide:
-  image:
-    repository: ch-user-guide
-    tag: ch-rel-1.5.1-1 #tag-to-replace-ch-user-guide
+  image: ch-user-guide:ch-rel-1.5.1-1 #tag-to-replace-ch-user-guide
