@@ -49,6 +49,7 @@ spec:
             runAsUser: 0
       containers:
         - name: {{ .Chart.Name }}
+          image {{ .Values.image }}
           imagePullPolicy: {{ .Values.image.pullPolicy | default "IfNotPresent" }}
           envFrom:
             - configMapRef:
