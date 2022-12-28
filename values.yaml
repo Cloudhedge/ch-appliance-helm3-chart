@@ -42,49 +42,64 @@ global:
 clusterDomain: cluster.local
 
 webapp:
-  image: webapp:ch-rel-1.5.1-1 #tag-to-replace-webapp
+  container:
+    image: webapp:ch-rel-1.5.1-1 #tag-to-replace-webapp
 
 aws-lift-shift:
   image: aws-lift-shift:ch-rel-1.5.1-1 #tag-to-replace-aws-lift-shift
 
 core-engine:
-  image: core-engine:ch-rel-1.5.1-1 #tag-to-replace-core-engine
+  container:
+    image: core-engine:ch-rel-1.5.1-1 #tag-to-replace-core-engine
 
 auth-gateway-service:
-  image: auth-gateway-service:ch-rel-1.5.1-5 #tag-to-replace-auth-gateway-service
+  container:
+    image: auth-gateway-service:ch-rel-1.5.1-5 #tag-to-replace-auth-gateway-service
 
 cloud-infra-service:
-  image: cloud-infra-service:dev-83 #tag-to-replace-cloud-infra-service
+  container:
+    image: cloud-infra-service:dev-83 #tag-to-replace-cloud-infra-service
 
 notification-service:
-  image: notification-service:ch-rel-1.5.1-1 #tag-to-replace-notification-service
+  container:
+    image: notification-service:ch-rel-1.5.1-1 #tag-to-replace-notification-service
 
 vault-service:
-  image: vault-service:ch-rel-1.5.1-1 #tag-to-replace-vault-service
+  container:
+    image: vault-service:ch-rel-1.5.1-1 #tag-to-replace-vault-service
 
 activity-service:
-  image: activity-service:ch-rel-1.5.1-1 #tag-to-replace-activity-service
+  container:
+    image: activity-service:ch-rel-1.5.1-1 #tag-to-replace-activity-service
 
 discover-service-linux:
-  image: discover-service-linux:ch-rel-1.5.1-1 #tag-to-replace-discover-service-linux
+  container:
+    image: discover-service-linux:ch-rel-1.5.1-1 #tag-to-replace-discover-service-linux
 
 discover-service-aix:
-  image: discover-service-aix:ch-rel-1.5.1-1 #tag-to-replace-discover-service-aix
+  container:
+    image: discover-service-aix:ch-rel-1.5.1-1 #tag-to-replace-discover-service-aix
 
 discover-service-windows:
-  image: discover-service-windows:ch-rel-1.5.1-1 #tag-to-replace-discover-service-windows
+  container:
+    image: discover-service-windows:ch-rel-1.5.1-1 #tag-to-replace-discover-service-windows
 
 transform-service-linux:
-  image: transform-service-linux:ch-rel-1.5.1-2 #tag-to-replace-transform-service-linux
+  container:
+    image: transform-service-linux:ch-rel-1.5.1-2 #tag-to-replace-transform-service-linux
 
 transform-service-windows:
-  image: transform-service-windows:ch-rel-1.5.1-2 #tag-to-replace-transform-service-windows
+  container:
+    image: transform-service-windows:ch-rel-1.5.1-2 #tag-to-replace-transform-service-windows
 
 report-service:
-  image: report-service:ch-rel-1.5.1-2 #tag-to-replace-report-service
+  container:
+    image: report-service:ch-rel-1.5.1-2 #tag-to-replace-report-service
 
 cruize-service:
-  image: cruize-service:ch-rel-1.5.1-1 #tag-to-replace-cruize-service
+  container:
+    image: cruize-service:ch-rel-1.5.1-1 #tag-to-replace-cruize-service
 
 ch-user-guide:
-  image: ch-user-guide:ch-rel-1.5.1-1 #tag-to-replace-ch-user-guide
+  container:
+    image: ch-user-guide:ch-rel-1.5.1-1 #tag-to-replace-ch-user-guide
