@@ -3,7 +3,7 @@ entries:
   omnideq-helmchart:
   - apiVersion: v2
     appVersion: 1.5-90
-    created: "2022-12-28T10:18:12.630071885Z"
+    created: "2022-12-28T10:24:30.657568383Z"
     dependencies:
     - alias: webapp
       name: omnideq-chart-template
@@ -90,7 +90,7 @@ entries:
     version: 1.5.90
   - apiVersion: v2
     appVersion: 1.5.3-8
-    created: "2022-12-28T10:18:12.626146786Z"
+    created: "2022-12-28T10:24:30.655528965Z"
     dependencies:
     - alias: aws-lift-shift
       name: omnideq-chart-template
@@ -157,7 +157,7 @@ entries:
       repository: ""
       version: 1.5.3-8
     description: OmniDeq Helm chart
-    digest: 63f35e8125fdb9ab99b82c400c52bd0ed86b43b21e119926f534de064211ae87
+    digest: 84e4636aa2d02c8657a5ba0d7ff74663b9dccd72b097fb31797b7bd49391fc8f
     home: https://cloudhedge.io
     keywords:
     - cloudhedge
@@ -173,7 +173,7 @@ entries:
     version: 1.5.3-8
   - apiVersion: v2
     appVersion: 1.5.2-9
-    created: "2022-12-28T10:18:12.62412956Z"
+    created: "2022-12-28T10:24:30.651568086Z"
     dependencies:
     - alias: aws-lift-shift
       name: omnideq-chart-template
@@ -256,7 +256,7 @@ entries:
     version: 1.5.2-9
   - apiVersion: v2
     appVersion: 1.5.1-5
-    created: "2022-12-28T10:18:12.622062465Z"
+    created: "2022-12-28T10:24:30.649485633Z"
     dependencies:
     - alias: aws-lift-shift
       name: omnideq-chart-template
@@ -337,4 +337,4 @@ entries:
     urls:
     - tars/omnideq-helmchart-1.5.1-5.tgz
     version: 1.5.1-5
-generated: "2022-12-28T10:18:12.619816681Z"
+generated: "2022-12-28T10:24:30.647264526Z"
