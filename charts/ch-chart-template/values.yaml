@@ -2,7 +2,7 @@ replicaCount: 1
 global:
   pvcName: ""
   image:
-    registry: gcr.io/proserv-242308
+    registry: odcr.cloudhedge.io/omnideq
 container:
   # ports:
   #   - containerPort: 80
