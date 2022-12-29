@@ -46,7 +46,8 @@ webapp:
     image: webapp:ch-rel-1.5.1-1 #tag-to-replace-webapp
 
 aws-lift-shift:
-  image: aws-lift-shift:ch-rel-1.5.1-1 #tag-to-replace-aws-lift-shift
+  container:
+    image: aws-lift-shift:ch-rel-1.5.1-1 #tag-to-replace-aws-lift-shift
 
 core-engine:
   container:
