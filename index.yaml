@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   omnideq-helmchart:
   - apiVersion: v2
-    appVersion: 1.5.38
+    appVersion: 1.5.3-8
     created: "2022-12-30T11:17:59.667680183Z"
     dependencies:
     - alias: aws-lift-shift
@@ -83,5 +83,5 @@ entries:
     name: omnideq-helmchart
     urls:
     - tars/omnideq-helmchart-1.5.3-8.tgz
-    version: "1.5.3-8"
+    version: 1.5.3-8
 generated: "2022-12-30T11:17:59.665520792Z"
