@@ -81,6 +81,6 @@ entries:
       name: Cloudhedge OmniDeq team
     name: omnideq-helmchart
     urls:
-    - tars/omnideq-helmchart-1.5.3-8.tgz
+    - tars/omnideq-helmchart-1.53-8.tgz
     version: 1.53-8
 generated: "2022-12-29T09:00:10.508202805Z"
