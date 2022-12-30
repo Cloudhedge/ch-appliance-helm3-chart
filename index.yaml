@@ -83,5 +83,5 @@ entries:
     name: omnideq-helmchart
     urls:
     - tars/omnideq-helmchart-1.5.3-8.tgz
-    version: 1.5.3-8
+    version: 1.5.38
 generated: "2022-12-30T11:17:59.665520792Z"
