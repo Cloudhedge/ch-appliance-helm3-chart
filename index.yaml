@@ -3,7 +3,7 @@ entries:
   omnideq-helmchart:
   - apiVersion: v2
     appVersion: 1.5.3-8
-    created: "2022-12-30T11:17:59.667680183Z"
+    created: "2022-12-30T11:31:46.792597899Z"
     dependencies:
     - alias: aws-lift-shift
       name: omnideq-chart-template
@@ -84,4 +84,87 @@ entries:
     urls:
     - tars/omnideq-helmchart-1.5.3-8.tgz
     version: 1.5.3-8
-generated: "2022-12-30T11:17:59.665520792Z"
+  - apiVersion: v2
+    appVersion: 1.5.2-9
+    created: "2022-12-30T11:31:46.789030402Z"
+    dependencies:
+    - alias: aws-lift-shift
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: webapp
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: auth-gateway-service
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: core-engine
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: notification-service
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: vault-service
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: activity-service
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: discover-service-linux
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: discover-service-windows
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: report-service
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: transform-service-linux
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: transform-service-windows
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: cruize-service
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: license-service
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: ch-user-guide
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    - alias: discover-service-aix
+      name: omnideq-chart-template
+      repository: ""
+      version: 1.5.2-9
+    description: OmniDeq Helm chart
+    digest: 61fd441ae44315dc608472dfbe166b0f3ab1a511191e2335a1f1e097aad52160
+    home: https://cloudhedge.io
+    keywords:
+    - cloudhedge
+    - omnideq
+    - chart
+    - kubernetes
+    maintainers:
+    - email: support@cloudhedge.io
+      name: Cloudhedge OmniDeq team
+    name: omnideq-helmchart
+    urls:
+    - tars/omnideq-helmchart-1.5.2-9.tgz
+    version: 1.5.2-9
+generated: "2022-12-30T11:31:46.786799735Z"
