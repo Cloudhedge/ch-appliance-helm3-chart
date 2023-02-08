@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  {{- with .Values.webapp.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  labels:
+    app.kubernetes.io/name: webapp
+  name: {{ .Release.Name }}-ingresss-webapp
+spec:
+  rules:
+  - host: {{ .Values.webapp.ingress.appHostURL }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ .Release.Name }}-webapp
+            port:
+            number: 443
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - {{ .Values.webapp.ingress.appHostURL }}
+    secretName: {{ .Values.webapp.ingress.tls.secretName }}
