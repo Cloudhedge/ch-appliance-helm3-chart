@@ -61,3 +61,6 @@ dependencies:
 - name: omnideq-chart-template
   version:  "tag-to-replace"
   alias: discover-service-aix
+- name: omnideq-chart-template
+  version:  "tag-to-replace"
+  alias: cloud-infra-service
